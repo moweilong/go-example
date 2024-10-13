@@ -1,28 +1,34 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 
 function MyComponent() {
 
-    const [car, setCar] = useState({ Year: "2015", Make: "Tesla", Model: "Model S" });
+    const [width, setWidth] = useState(window.innerWidth);
+    const [height, setHeight] = useState(window.innerHeight);
 
-    const handleYearChange = (e) => {
-        setCar(c => ({ ...c, Year: e.target.value }));
-    };
+    useEffect(() => {
+        window.addEventListener("resize", handleResize)
+        console.log("RESIZE EVENT ADD");
 
-    const handleMakeChange = (e) => {
-        setCar(c => ({ ...c, Make: e.target.value }));
-    };
+        return () => {
+            window.removeEventListener("resize", handleResize);
+            console.log("RESIZE EVENT REMOVE");
+        };
 
-    const handleModelChange = (e) => {
-        setCar(c => ({ ...c, Model: e.target.value }));
+    }, []);
+
+    useEffect(() => {
+        document.title = `Window: ${width} x ${height}`;
+    }, [width, height]);
+
+    const handleResize = () => {
+        setWidth(window.innerWidth);
+        setHeight(window.innerHeight);
     };
 
     return (
         <div>
-            <p>Your favorite car is: {car.Year} {car.Make} {car.Model}</p>
-
-            <input type="number" onChange={handleYearChange} value={car.Year} /><br />
-            <input type="text" onChange={handleMakeChange} value={car.Make} /><br />
-            <input type="text" onChange={handleModelChange} value={car.Model} />
+            <h1>Window Width: {width}</h1>
+            <h1>Window Height: {height}</h1>
         </div>
     );
 }

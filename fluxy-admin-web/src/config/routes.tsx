@@ -1,26 +1,31 @@
-import { UserOutlined, ProjectOutlined } from '@ant-design/icons';
-import Home from '@/pages/home';
-import User from '@/pages/user';
+import { DashboardOutlined } from '@ant-design/icons';
+import { lazy } from 'react';
+import { Navigate } from 'react-router-dom';
 
+export interface MenuItem {
+   path: string;
+   title?: string;
+   icon?: any;
+   element?: any;
+   children?: MenuItem[];
+   layout?: boolean;
+   Component?: any;
+}
 
-
-export const routeConfig = [
+export const routeConfig: MenuItem[] = [
    {
-      path: '/home',
-      element: <Home />,
-      title: '项目列表',
-      icon: <ProjectOutlined />,
-      children: [{
-         path: '/home',
-         element: <Home />,
-         title: '项目列表',
-         icon: <ProjectOutlined />,
-      }],
+      path: '/dashboard',
+      title: 'Dashboard',
+      icon: <DashboardOutlined />,
+      Component: lazy(() => import('@/pages/dashboard')),
    },
    {
-      path: '/user',
-      element: <User />,
-      title: 'user',
-      icon: <UserOutlined />,
+      path: '/test',
+      title: 'Test',
+      element: <p>Test</p>,
+   },
+   {
+      path: '/',
+      element: <Navigate to='/dashboard' />,
    },
 ]

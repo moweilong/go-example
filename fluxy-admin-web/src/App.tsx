@@ -1,14 +1,30 @@
-import {ConfigProvider,ThemeConfig,theme} from 'antd'
+import { ConfigProvider, ThemeConfig, theme } from 'antd'
 import { useMemo } from 'react'
-import './App.css'
-import {useStore} from '@/models/global'
-import Layout from '@/layouts'
+import { createBrowserRouter, RouterProvider } from 'react-router-dom';
+import { useGlobalStore } from '@/store/global'
+import BasicLayout from '@/layouts'
+import { routeConfig } from './config/routes';
+import Result404 from './404';
 
 function App() {
-  const darkMode = useStore(state => state.darkMode)
+  const darkMode = useGlobalStore(state => state.darkMode)
 
-  const curTheme: ThemeConfig = useMemo(()=>{
-    if(darkMode){
+  const router = createBrowserRouter(
+    [
+      {
+        path: "/",
+        Component: BasicLayout,
+        children: routeConfig,
+      },
+      {
+        path: "*",
+        Component: Result404,
+      }
+    ]
+  );
+
+  const curTheme: ThemeConfig = useMemo(() => {
+    if (darkMode) {
       return {
         token: {
           colorPrimary: 'rgb(103, 58, 183)',
@@ -22,7 +38,7 @@ function App() {
         },
         algorithm: theme.darkAlgorithm,
       }
-    }else {
+    } else {
       return {
         token: {
           colorPrimary: 'rgb(103, 58, 183)',
@@ -35,13 +51,11 @@ function App() {
         },
       }
     }
-  },[darkMode])
+  }, [darkMode])
 
   return (
     <ConfigProvider theme={curTheme}>
-      <div className={darkMode ? 'dark' : 'light'}>
-        <Layout />
-      </div>
+      <RouterProvider router={router} />
     </ConfigProvider>
   );
 }

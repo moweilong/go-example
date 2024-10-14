@@ -1,10 +1,13 @@
-import { ConfigProvider, ThemeConfig, theme } from 'antd'
-import { useMemo } from 'react'
+import { ConfigProvider, ThemeConfig, theme } from 'antd';
+import { useMemo } from 'react';
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
-import { useGlobalStore } from '@/store/global'
-import BasicLayout from '@/layouts'
+
+import { useGlobalStore } from '@/store/global';
 import { routeConfig } from './config/routes';
+
+import BasicLayout from '@/layouts';
 import Result404 from './404';
+import Login from './pages/user/login';
 
 function App() {
   const darkMode = useGlobalStore(state => state.darkMode)
@@ -15,6 +18,10 @@ function App() {
         path: "/",
         Component: BasicLayout,
         children: routeConfig,
+      },
+      {
+        path: "/user/login",
+        Component: Login,
       },
       {
         path: "*",

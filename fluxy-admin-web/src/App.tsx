@@ -1,6 +1,6 @@
 import { ConfigProvider, ThemeConfig, theme } from 'antd';
 import { useEffect, useMemo } from 'react';
-import { createBrowserRouter, RouterProvider } from 'react-router-dom';
+import { createHashRouter, RouterProvider } from 'react-router-dom';
 
 import { useGlobalStore } from '@/store/global';
 import { routeConfig } from '@/config/routes';
@@ -14,7 +14,7 @@ function App() {
 
   const { darkMode, lang } = useGlobalStore()
 
-  const router = createBrowserRouter(
+  const router = createHashRouter(
     [
       {
         path: "/",

@@ -52,6 +52,10 @@ func Login(ctx context.Context, user *model.Identity) (string, int64, error) {
 		jwt.RegisteredClaims{},
 	}
 
+	// 暂时替代 SetConfig 功能，后续需要重构
+	var config *model.TokenConfig
+	g.Cfg().MustGet(ctx, "token").Scan(&config)
+
 	header, err := jwt.NewWithClaims(jwt.SigningMethodHS256, claims).SignedString([]byte(config.SecretKey))
 	if err != nil {
 		return "", 0, err

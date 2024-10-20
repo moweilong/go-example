@@ -1,0 +1,833 @@
+2024-10-20 20:45:52.038 [INFO] {f1ac8f9eeb290018d98e9e291923e920} /home/going/workspace/golang/src/github.com/bugsmo/go-example/hotgo/internal/cmd/cmd.go:26: swagger ui is serving at address: http://127.0.0.1:8000/swagger/
+2024-10-20 20:45:52.038 [INFO] {f1ac8f9eeb290018d98e9e291923e920} /home/going/workspace/golang/src/github.com/bugsmo/go-example/hotgo/internal/cmd/cmd.go:26: openapi specification is serving at address: http://127.0.0.1:8000/api.json
+2024-10-20 20:45:52.037 [INFO] pid[1987]: http server started listening on [:8000]
+2024-10-20 20:45:59.679 [INFO] /home/going/workspace/golang/src/github.com/bugsmo/go-example/hotgo/internal/cmd/cmd.go:26: pid[1987]: all servers shutdown
+2024-10-20 20:46:13.470 [INFO] {70b06c25f129001896c5921fdbc8d539} /home/going/workspace/golang/src/github.com/bugsmo/go-example/hotgo/internal/cmd/cmd.go:26: swagger ui is serving at address: http://127.0.0.1:8000/swagger/
+2024-10-20 20:46:13.471 [INFO] {70b06c25f129001896c5921fdbc8d539} /home/going/workspace/golang/src/github.com/bugsmo/go-example/hotgo/internal/cmd/cmd.go:26: openapi specification is serving at address: http://127.0.0.1:8000/api.json
+
+  ADDRESS | METHOD |     ROUTE      |                        HANDLER                        |           MIDDLEWARE             
+----------|--------|----------------|-------------------------------------------------------|----------------------------------
+  :8000   | ALL    | /api.json      | github.com/gogf/gf/v2/net/ghttp.(*Server).openapiSpec |                                  
+----------|--------|----------------|-------------------------------------------------------|----------------------------------
+  :8000   | GET    | /hello         | hotgo/internal/controller/hello.(*ControllerV1).Hello | ghttp.MiddlewareHandlerResponse  
+----------|--------|----------------|-------------------------------------------------------|----------------------------------
+  :8000   | ALL    | /pprof/*action | github.com/gogf/gf/v2/net/ghttp.(*utilPProf).Index    |                                  
+----------|--------|----------------|-------------------------------------------------------|----------------------------------
+  :8000   | ALL    | /pprof/cmdline | github.com/gogf/gf/v2/net/ghttp.(*utilPProf).Cmdline  |                                  
+----------|--------|----------------|-------------------------------------------------------|----------------------------------
+  :8000   | ALL    | /pprof/profile | github.com/gogf/gf/v2/net/ghttp.(*utilPProf).Profile  |                                  
+----------|--------|----------------|-------------------------------------------------------|----------------------------------
+  :8000   | ALL    | /pprof/symbol  | github.com/gogf/gf/v2/net/ghttp.(*utilPProf).Symbol   |                                  
+----------|--------|----------------|-------------------------------------------------------|----------------------------------
+  :8000   | ALL    | /pprof/trace   | github.com/gogf/gf/v2/net/ghttp.(*utilPProf).Trace    |                                  
+----------|--------|----------------|-------------------------------------------------------|----------------------------------
+  :8000   | ALL    | /swagger/*     | github.com/gogf/gf/v2/net/ghttp.(*Server).swaggerUI   | HOOK_BEFORE_SERVE                
+----------|--------|----------------|-------------------------------------------------------|----------------------------------
+
+2024-10-20 20:46:13.470 [INFO] pid[2257]: http server started listening on [:8000]
+2024-10-20 21:58:45.528 [INFO] {9fc46916e62d00187f167a66d68c9ffb} /home/going/workspace/golang/src/github.com/bugsmo/go-example/hotgo/internal/cmd/cmd.go:26: swagger ui is serving at address: http://127.0.0.1:8000/swagger/
+2024-10-20 21:58:45.529 [INFO] {9fc46916e62d00187f167a66d68c9ffb} /home/going/workspace/golang/src/github.com/bugsmo/go-example/hotgo/internal/cmd/cmd.go:26: openapi specification is serving at address: http://127.0.0.1:8000/api.json
+2024-10-20 21:58:45.528 [INFO] pid[52432]: http server started listening on [:8000]
+
+  ADDRESS | METHOD |          ROUTE           |                           HANDLER                            |           MIDDLEWARE             
+----------|--------|--------------------------|--------------------------------------------------------------|----------------------------------
+  :8000   | GET    | /admin/hello             | hotgo/internal/controller/hello.(*ControllerV1).Hello        | service.IMiddleware.AdminAuth    
+          |        |                          |                                                              | ghttp.MiddlewareHandlerResponse  
+----------|--------|--------------------------|--------------------------------------------------------------|----------------------------------
+  :8000   | POST   | /admin/site/accountLogin | hotgo/internal/controller/admin/common.(*cSite).AccountLogin |                                  
+----------|--------|--------------------------|--------------------------------------------------------------|----------------------------------
+  :8000   | ALL    | /api.json                | github.com/gogf/gf/v2/net/ghttp.(*Server).openapiSpec        |                                  
+----------|--------|--------------------------|--------------------------------------------------------------|----------------------------------
+  :8000   | ALL    | /pprof/*action           | github.com/gogf/gf/v2/net/ghttp.(*utilPProf).Index           |                                  
+----------|--------|--------------------------|--------------------------------------------------------------|----------------------------------
+  :8000   | ALL    | /pprof/cmdline           | github.com/gogf/gf/v2/net/ghttp.(*utilPProf).Cmdline         |                                  
+----------|--------|--------------------------|--------------------------------------------------------------|----------------------------------
+  :8000   | ALL    | /pprof/profile           | github.com/gogf/gf/v2/net/ghttp.(*utilPProf).Profile         |                                  
+----------|--------|--------------------------|--------------------------------------------------------------|----------------------------------
+  :8000   | ALL    | /pprof/symbol            | github.com/gogf/gf/v2/net/ghttp.(*utilPProf).Symbol          |                                  
+----------|--------|--------------------------|--------------------------------------------------------------|----------------------------------
+  :8000   | ALL    | /pprof/trace             | github.com/gogf/gf/v2/net/ghttp.(*utilPProf).Trace           |                                  
+----------|--------|--------------------------|--------------------------------------------------------------|----------------------------------
+  :8000   | ALL    | /swagger/*               | github.com/gogf/gf/v2/net/ghttp.(*Server).swaggerUI          | HOOK_BEFORE_SERVE                
+----------|--------|--------------------------|--------------------------------------------------------------|----------------------------------
+
+2024-10-20 22:01:16.801 [FATA] {9fc46916e62d00187f167a66d68c9ffb} /home/going/workspace/golang/src/github.com/bugsmo/go-example/hotgo/internal/cmd/cmd.go:26: invalid handler: github.com/gogf/gf/v2/net/ghttp.(*RouterGroup).ALL defined as "func(string, interface {}, ...interface {}) *ghttp.RouterGroup", but "func(*ghttp.Request)" or "func(context.Context, *BizReq)(*BizRes, error)" is required
+1. invalid handler: github.com/gogf/gf/v2/net/ghttp.(*RouterGroup).ALL defined as "func(string, interface {}, ...interface {}) *ghttp.RouterGroup", but "func(*ghttp.Request)" or "func(context.Context, *BizReq)(*BizRes, error)" is required
+   1).  hotgo/internal/cmd.init.func1
+        /home/going/workspace/golang/src/github.com/bugsmo/go-example/hotgo/internal/cmd/cmd.go:26
+   2).  main.main
+        /home/going/workspace/golang/src/github.com/bugsmo/go-example/hotgo/main.go:14
+ 
+Stack:
+1.  hotgo/internal/cmd.init.func1
+    /home/going/workspace/golang/src/github.com/bugsmo/go-example/hotgo/internal/cmd/cmd.go:26
+2.  main.main
+    /home/going/workspace/golang/src/github.com/bugsmo/go-example/hotgo/main.go:14
+
+2024-10-20 22:01:40.834 [FATA] {6236a12d0f2e00188289ee0e7897a779} /home/going/workspace/golang/src/github.com/bugsmo/go-example/hotgo/internal/cmd/cmd.go:26: invalid handler: github.com/gogf/gf/v2/net/ghttp.(*RouterGroup).ALL defined as "func(string, interface {}, ...interface {}) *ghttp.RouterGroup", but "func(*ghttp.Request)" or "func(context.Context, *BizReq)(*BizRes, error)" is required
+1. invalid handler: github.com/gogf/gf/v2/net/ghttp.(*RouterGroup).ALL defined as "func(string, interface {}, ...interface {}) *ghttp.RouterGroup", but "func(*ghttp.Request)" or "func(context.Context, *BizReq)(*BizRes, error)" is required
+   1).  hotgo/internal/cmd.init.func1
+        /home/going/workspace/golang/src/github.com/bugsmo/go-example/hotgo/internal/cmd/cmd.go:26
+   2).  main.main
+        /home/going/workspace/golang/src/github.com/bugsmo/go-example/hotgo/main.go:14
+ 
+Stack:
+1.  hotgo/internal/cmd.init.func1
+    /home/going/workspace/golang/src/github.com/bugsmo/go-example/hotgo/internal/cmd/cmd.go:26
+2.  main.main
+    /home/going/workspace/golang/src/github.com/bugsmo/go-example/hotgo/main.go:14
+
+2024-10-20 22:03:17.606 [INFO] {6236a12d0f2e00188289ee0e7897a779} /home/going/workspace/golang/src/github.com/bugsmo/go-example/hotgo/internal/cmd/cmd.go:26: swagger ui is serving at address: http://127.0.0.1:8000/swagger/
+2024-10-20 22:03:17.607 [INFO] {6236a12d0f2e00188289ee0e7897a779} /home/going/workspace/golang/src/github.com/bugsmo/go-example/hotgo/internal/cmd/cmd.go:26: openapi specification is serving at address: http://127.0.0.1:8000/api.json
+2024-10-20 22:03:17.606 [INFO] pid[55134]: http server started listening on [:8000]
+
+  ADDRESS | METHOD |          ROUTE           |                           HANDLER                            |           MIDDLEWARE             
+----------|--------|--------------------------|--------------------------------------------------------------|----------------------------------
+  :8000   | GET    | /admin/hello             | hotgo/internal/controller/hello.(*ControllerV1).Hello        | service.IMiddleware.AdminAuth    
+          |        |                          |                                                              | ghttp.MiddlewareHandlerResponse  
+----------|--------|--------------------------|--------------------------------------------------------------|----------------------------------
+  :8000   | POST   | /admin/site/accountLogin | hotgo/internal/controller/admin/common.(*cSite).AccountLogin |                                  
+----------|--------|--------------------------|--------------------------------------------------------------|----------------------------------
+  :8000   | ALL    | /api.json                | github.com/gogf/gf/v2/net/ghttp.(*Server).openapiSpec        |                                  
+----------|--------|--------------------------|--------------------------------------------------------------|----------------------------------
+  :8000   | ALL    | /pprof/*action           | github.com/gogf/gf/v2/net/ghttp.(*utilPProf).Index           |                                  
+----------|--------|--------------------------|--------------------------------------------------------------|----------------------------------
+  :8000   | ALL    | /pprof/cmdline           | github.com/gogf/gf/v2/net/ghttp.(*utilPProf).Cmdline         |                                  
+----------|--------|--------------------------|--------------------------------------------------------------|----------------------------------
+  :8000   | ALL    | /pprof/profile           | github.com/gogf/gf/v2/net/ghttp.(*utilPProf).Profile         |                                  
+----------|--------|--------------------------|--------------------------------------------------------------|----------------------------------
+  :8000   | ALL    | /pprof/symbol            | github.com/gogf/gf/v2/net/ghttp.(*utilPProf).Symbol          |                                  
+----------|--------|--------------------------|--------------------------------------------------------------|----------------------------------
+  :8000   | ALL    | /pprof/trace             | github.com/gogf/gf/v2/net/ghttp.(*utilPProf).Trace           |                                  
+----------|--------|--------------------------|--------------------------------------------------------------|----------------------------------
+  :8000   | ALL    | /swagger/*               | github.com/gogf/gf/v2/net/ghttp.(*Server).swaggerUI          | HOOK_BEFORE_SERVE                
+----------|--------|--------------------------|--------------------------------------------------------------|----------------------------------
+
+2024-10-20 22:06:41.309 [INFO] {42d361b5542e001835ea252b78768323} /home/going/workspace/golang/src/github.com/bugsmo/go-example/hotgo/internal/cmd/cmd.go:26: swagger ui is serving at address: http://127.0.0.1:8000/swagger/
+2024-10-20 22:06:41.310 [INFO] {42d361b5542e001835ea252b78768323} /home/going/workspace/golang/src/github.com/bugsmo/go-example/hotgo/internal/cmd/cmd.go:26: openapi specification is serving at address: http://127.0.0.1:8000/api.json
+2024-10-20 22:06:41.310 [INFO] pid[57663]: http server started listening on [:8000]
+
+  ADDRESS | METHOD |          ROUTE           |                           HANDLER                            |           MIDDLEWARE             
+----------|--------|--------------------------|--------------------------------------------------------------|----------------------------------
+  :8000   | GET    | /admin/hello             | hotgo/internal/controller/hello.(*ControllerV1).Hello        | service.IMiddleware.AdminAuth    
+          |        |                          |                                                              | ghttp.MiddlewareHandlerResponse  
+----------|--------|--------------------------|--------------------------------------------------------------|----------------------------------
+  :8000   | POST   | /admin/site/accountLogin | hotgo/internal/controller/admin/common.(*cSite).AccountLogin |                                  
+----------|--------|--------------------------|--------------------------------------------------------------|----------------------------------
+  :8000   | ALL    | /api.json                | github.com/gogf/gf/v2/net/ghttp.(*Server).openapiSpec        |                                  
+----------|--------|--------------------------|--------------------------------------------------------------|----------------------------------
+  :8000   | ALL    | /pprof/*action           | github.com/gogf/gf/v2/net/ghttp.(*utilPProf).Index           |                                  
+----------|--------|--------------------------|--------------------------------------------------------------|----------------------------------
+  :8000   | ALL    | /pprof/cmdline           | github.com/gogf/gf/v2/net/ghttp.(*utilPProf).Cmdline         |                                  
+----------|--------|--------------------------|--------------------------------------------------------------|----------------------------------
+  :8000   | ALL    | /pprof/profile           | github.com/gogf/gf/v2/net/ghttp.(*utilPProf).Profile         |                                  
+----------|--------|--------------------------|--------------------------------------------------------------|----------------------------------
+  :8000   | ALL    | /pprof/symbol            | github.com/gogf/gf/v2/net/ghttp.(*utilPProf).Symbol          |                                  
+----------|--------|--------------------------|--------------------------------------------------------------|----------------------------------
+  :8000   | ALL    | /pprof/trace             | github.com/gogf/gf/v2/net/ghttp.(*utilPProf).Trace           |                                  
+----------|--------|--------------------------|--------------------------------------------------------------|----------------------------------
+  :8000   | ALL    | /swagger/*               | github.com/gogf/gf/v2/net/ghttp.(*Server).swaggerUI          | HOOK_BEFORE_SERVE                
+----------|--------|--------------------------|--------------------------------------------------------------|----------------------------------
+
+2024-10-20 22:11:06.366 [INFO] {42d361b5542e001835ea252b78768323} /home/going/workspace/golang/src/github.com/bugsmo/go-example/hotgo/internal/cmd/cmd.go:26: swagger ui is serving at address: http://127.0.0.1:8000/swagger/
+2024-10-20 22:11:06.366 [INFO] {42d361b5542e001835ea252b78768323} /home/going/workspace/golang/src/github.com/bugsmo/go-example/hotgo/internal/cmd/cmd.go:26: openapi specification is serving at address: http://127.0.0.1:8000/api.json
+2024-10-20 22:11:06.366 [INFO] pid[59677]: http server started listening on [:8000]
+
+  ADDRESS | METHOD |          ROUTE           |                           HANDLER                            |           MIDDLEWARE             
+----------|--------|--------------------------|--------------------------------------------------------------|----------------------------------
+  :8000   | GET    | /admin/hello             | hotgo/internal/controller/hello.(*ControllerV1).Hello        | service.IMiddleware.AdminAuth    
+          |        |                          |                                                              | ghttp.MiddlewareHandlerResponse  
+----------|--------|--------------------------|--------------------------------------------------------------|----------------------------------
+  :8000   | POST   | /admin/site/accountLogin | hotgo/internal/controller/admin/common.(*cSite).AccountLogin |                                  
+----------|--------|--------------------------|--------------------------------------------------------------|----------------------------------
+  :8000   | ALL    | /api.json                | github.com/gogf/gf/v2/net/ghttp.(*Server).openapiSpec        |                                  
+----------|--------|--------------------------|--------------------------------------------------------------|----------------------------------
+  :8000   | ALL    | /pprof/*action           | github.com/gogf/gf/v2/net/ghttp.(*utilPProf).Index           |                                  
+----------|--------|--------------------------|--------------------------------------------------------------|----------------------------------
+  :8000   | ALL    | /pprof/cmdline           | github.com/gogf/gf/v2/net/ghttp.(*utilPProf).Cmdline         |                                  
+----------|--------|--------------------------|--------------------------------------------------------------|----------------------------------
+  :8000   | ALL    | /pprof/profile           | github.com/gogf/gf/v2/net/ghttp.(*utilPProf).Profile         |                                  
+----------|--------|--------------------------|--------------------------------------------------------------|----------------------------------
+  :8000   | ALL    | /pprof/symbol            | github.com/gogf/gf/v2/net/ghttp.(*utilPProf).Symbol          |                                  
+----------|--------|--------------------------|--------------------------------------------------------------|----------------------------------
+  :8000   | ALL    | /pprof/trace             | github.com/gogf/gf/v2/net/ghttp.(*utilPProf).Trace           |                                  
+----------|--------|--------------------------|--------------------------------------------------------------|----------------------------------
+  :8000   | ALL    | /swagger/*               | github.com/gogf/gf/v2/net/ghttp.(*Server).swaggerUI          | HOOK_BEFORE_SERVE                
+----------|--------|--------------------------|--------------------------------------------------------------|----------------------------------
+
+2024-10-20 22:12:04.918 [INFO] {42d361b5542e001835ea252b78768323} /home/going/workspace/golang/src/github.com/bugsmo/go-example/hotgo/internal/cmd/cmd.go:26: swagger ui is serving at address: http://127.0.0.1:8000/swagger/
+2024-10-20 22:12:04.918 [INFO] {42d361b5542e001835ea252b78768323} /home/going/workspace/golang/src/github.com/bugsmo/go-example/hotgo/internal/cmd/cmd.go:26: openapi specification is serving at address: http://127.0.0.1:8000/api.json
+2024-10-20 22:12:04.918 [INFO] pid[60395]: http server started listening on [:8000]
+
+  ADDRESS | METHOD |          ROUTE           |                           HANDLER                            |           MIDDLEWARE             
+----------|--------|--------------------------|--------------------------------------------------------------|----------------------------------
+  :8000   | GET    | /admin/hello             | hotgo/internal/controller/hello.(*ControllerV1).Hello        | service.IMiddleware.AdminAuth    
+          |        |                          |                                                              | ghttp.MiddlewareHandlerResponse  
+----------|--------|--------------------------|--------------------------------------------------------------|----------------------------------
+  :8000   | POST   | /admin/site/accountLogin | hotgo/internal/controller/admin/common.(*cSite).AccountLogin |                                  
+----------|--------|--------------------------|--------------------------------------------------------------|----------------------------------
+  :8000   | ALL    | /api.json                | github.com/gogf/gf/v2/net/ghttp.(*Server).openapiSpec        |                                  
+----------|--------|--------------------------|--------------------------------------------------------------|----------------------------------
+  :8000   | ALL    | /pprof/*action           | github.com/gogf/gf/v2/net/ghttp.(*utilPProf).Index           |                                  
+----------|--------|--------------------------|--------------------------------------------------------------|----------------------------------
+  :8000   | ALL    | /pprof/cmdline           | github.com/gogf/gf/v2/net/ghttp.(*utilPProf).Cmdline         |                                  
+----------|--------|--------------------------|--------------------------------------------------------------|----------------------------------
+  :8000   | ALL    | /pprof/profile           | github.com/gogf/gf/v2/net/ghttp.(*utilPProf).Profile         |                                  
+----------|--------|--------------------------|--------------------------------------------------------------|----------------------------------
+  :8000   | ALL    | /pprof/symbol            | github.com/gogf/gf/v2/net/ghttp.(*utilPProf).Symbol          |                                  
+----------|--------|--------------------------|--------------------------------------------------------------|----------------------------------
+  :8000   | ALL    | /pprof/trace             | github.com/gogf/gf/v2/net/ghttp.(*utilPProf).Trace           |                                  
+----------|--------|--------------------------|--------------------------------------------------------------|----------------------------------
+  :8000   | ALL    | /swagger/*               | github.com/gogf/gf/v2/net/ghttp.(*Server).swaggerUI          | HOOK_BEFORE_SERVE                
+----------|--------|--------------------------|--------------------------------------------------------------|----------------------------------
+
+2024-10-20 22:12:25.732 [INFO] {42d361b5542e001835ea252b78768323} /home/going/workspace/golang/src/github.com/bugsmo/go-example/hotgo/internal/cmd/cmd.go:26: swagger ui is serving at address: http://127.0.0.1:8000/swagger/
+2024-10-20 22:12:25.732 [INFO] {42d361b5542e001835ea252b78768323} /home/going/workspace/golang/src/github.com/bugsmo/go-example/hotgo/internal/cmd/cmd.go:26: openapi specification is serving at address: http://127.0.0.1:8000/api.json
+2024-10-20 22:12:25.732 [INFO] pid[61229]: http server started listening on [:8000]
+
+  ADDRESS | METHOD |          ROUTE           |                           HANDLER                            |           MIDDLEWARE             
+----------|--------|--------------------------|--------------------------------------------------------------|----------------------------------
+  :8000   | GET    | /admin/hello             | hotgo/internal/controller/hello.(*ControllerV1).Hello        | service.IMiddleware.AdminAuth    
+          |        |                          |                                                              | ghttp.MiddlewareHandlerResponse  
+----------|--------|--------------------------|--------------------------------------------------------------|----------------------------------
+  :8000   | POST   | /admin/site/accountLogin | hotgo/internal/controller/admin/common.(*cSite).AccountLogin |                                  
+----------|--------|--------------------------|--------------------------------------------------------------|----------------------------------
+  :8000   | ALL    | /api.json                | github.com/gogf/gf/v2/net/ghttp.(*Server).openapiSpec        |                                  
+----------|--------|--------------------------|--------------------------------------------------------------|----------------------------------
+  :8000   | ALL    | /pprof/*action           | github.com/gogf/gf/v2/net/ghttp.(*utilPProf).Index           |                                  
+----------|--------|--------------------------|--------------------------------------------------------------|----------------------------------
+  :8000   | ALL    | /pprof/cmdline           | github.com/gogf/gf/v2/net/ghttp.(*utilPProf).Cmdline         |                                  
+----------|--------|--------------------------|--------------------------------------------------------------|----------------------------------
+  :8000   | ALL    | /pprof/profile           | github.com/gogf/gf/v2/net/ghttp.(*utilPProf).Profile         |                                  
+----------|--------|--------------------------|--------------------------------------------------------------|----------------------------------
+  :8000   | ALL    | /pprof/symbol            | github.com/gogf/gf/v2/net/ghttp.(*utilPProf).Symbol          |                                  
+----------|--------|--------------------------|--------------------------------------------------------------|----------------------------------
+  :8000   | ALL    | /pprof/trace             | github.com/gogf/gf/v2/net/ghttp.(*utilPProf).Trace           |                                  
+----------|--------|--------------------------|--------------------------------------------------------------|----------------------------------
+  :8000   | ALL    | /swagger/*               | github.com/gogf/gf/v2/net/ghttp.(*Server).swaggerUI          | HOOK_BEFORE_SERVE                
+----------|--------|--------------------------|--------------------------------------------------------------|----------------------------------
+
+2024-10-20 22:15:39.122 [INFO] {42d361b5542e001835ea252b78768323} /home/going/workspace/golang/src/github.com/bugsmo/go-example/hotgo/internal/cmd/cmd.go:26: swagger ui is serving at address: http://127.0.0.1:8000/swagger/
+2024-10-20 22:15:39.123 [INFO] {42d361b5542e001835ea252b78768323} /home/going/workspace/golang/src/github.com/bugsmo/go-example/hotgo/internal/cmd/cmd.go:26: openapi specification is serving at address: http://127.0.0.1:8000/api.json
+2024-10-20 22:15:39.122 [INFO] pid[63100]: http server started listening on [:8000]
+
+  ADDRESS | METHOD |          ROUTE           |                           HANDLER                            |           MIDDLEWARE             
+----------|--------|--------------------------|--------------------------------------------------------------|----------------------------------
+  :8000   | GET    | /admin/hello             | hotgo/internal/controller/hello.(*ControllerV1).Hello        | service.IMiddleware.AdminAuth    
+          |        |                          |                                                              | ghttp.MiddlewareHandlerResponse  
+----------|--------|--------------------------|--------------------------------------------------------------|----------------------------------
+  :8000   | POST   | /admin/site/accountLogin | hotgo/internal/controller/admin/common.(*cSite).AccountLogin |                                  
+----------|--------|--------------------------|--------------------------------------------------------------|----------------------------------
+  :8000   | ALL    | /api.json                | github.com/gogf/gf/v2/net/ghttp.(*Server).openapiSpec        |                                  
+----------|--------|--------------------------|--------------------------------------------------------------|----------------------------------
+  :8000   | ALL    | /pprof/*action           | github.com/gogf/gf/v2/net/ghttp.(*utilPProf).Index           |                                  
+----------|--------|--------------------------|--------------------------------------------------------------|----------------------------------
+  :8000   | ALL    | /pprof/cmdline           | github.com/gogf/gf/v2/net/ghttp.(*utilPProf).Cmdline         |                                  
+----------|--------|--------------------------|--------------------------------------------------------------|----------------------------------
+  :8000   | ALL    | /pprof/profile           | github.com/gogf/gf/v2/net/ghttp.(*utilPProf).Profile         |                                  
+----------|--------|--------------------------|--------------------------------------------------------------|----------------------------------
+  :8000   | ALL    | /pprof/symbol            | github.com/gogf/gf/v2/net/ghttp.(*utilPProf).Symbol          |                                  
+----------|--------|--------------------------|--------------------------------------------------------------|----------------------------------
+  :8000   | ALL    | /pprof/trace             | github.com/gogf/gf/v2/net/ghttp.(*utilPProf).Trace           |                                  
+----------|--------|--------------------------|--------------------------------------------------------------|----------------------------------
+  :8000   | ALL    | /swagger/*               | github.com/gogf/gf/v2/net/ghttp.(*Server).swaggerUI          | HOOK_BEFORE_SERVE                
+----------|--------|--------------------------|--------------------------------------------------------------|----------------------------------
+
+2024-10-20 22:16:12.619 [INFO] {42d361b5542e001835ea252b78768323} /home/going/workspace/golang/src/github.com/bugsmo/go-example/hotgo/internal/cmd/cmd.go:26: swagger ui is serving at address: http://127.0.0.1:8000/swagger/
+2024-10-20 22:16:12.620 [INFO] {42d361b5542e001835ea252b78768323} /home/going/workspace/golang/src/github.com/bugsmo/go-example/hotgo/internal/cmd/cmd.go:26: openapi specification is serving at address: http://127.0.0.1:8000/api.json
+2024-10-20 22:16:12.619 [INFO] pid[63699]: http server started listening on [:8000]
+
+  ADDRESS | METHOD |          ROUTE           |                           HANDLER                            |           MIDDLEWARE             
+----------|--------|--------------------------|--------------------------------------------------------------|----------------------------------
+  :8000   | GET    | /admin/hello             | hotgo/internal/controller/hello.(*ControllerV1).Hello        | service.IMiddleware.AdminAuth    
+          |        |                          |                                                              | ghttp.MiddlewareHandlerResponse  
+----------|--------|--------------------------|--------------------------------------------------------------|----------------------------------
+  :8000   | POST   | /admin/site/accountLogin | hotgo/internal/controller/admin/common.(*cSite).AccountLogin |                                  
+----------|--------|--------------------------|--------------------------------------------------------------|----------------------------------
+  :8000   | ALL    | /api.json                | github.com/gogf/gf/v2/net/ghttp.(*Server).openapiSpec        |                                  
+----------|--------|--------------------------|--------------------------------------------------------------|----------------------------------
+  :8000   | ALL    | /pprof/*action           | github.com/gogf/gf/v2/net/ghttp.(*utilPProf).Index           |                                  
+----------|--------|--------------------------|--------------------------------------------------------------|----------------------------------
+  :8000   | ALL    | /pprof/cmdline           | github.com/gogf/gf/v2/net/ghttp.(*utilPProf).Cmdline         |                                  
+----------|--------|--------------------------|--------------------------------------------------------------|----------------------------------
+  :8000   | ALL    | /pprof/profile           | github.com/gogf/gf/v2/net/ghttp.(*utilPProf).Profile         |                                  
+----------|--------|--------------------------|--------------------------------------------------------------|----------------------------------
+  :8000   | ALL    | /pprof/symbol            | github.com/gogf/gf/v2/net/ghttp.(*utilPProf).Symbol          |                                  
+----------|--------|--------------------------|--------------------------------------------------------------|----------------------------------
+  :8000   | ALL    | /pprof/trace             | github.com/gogf/gf/v2/net/ghttp.(*utilPProf).Trace           |                                  
+----------|--------|--------------------------|--------------------------------------------------------------|----------------------------------
+  :8000   | ALL    | /swagger/*               | github.com/gogf/gf/v2/net/ghttp.(*Server).swaggerUI          | HOOK_BEFORE_SERVE                
+----------|--------|--------------------------|--------------------------------------------------------------|----------------------------------
+
+2024-10-20 22:16:41.994 [INFO] {42d361b5542e001835ea252b78768323} /home/going/workspace/golang/src/github.com/bugsmo/go-example/hotgo/internal/cmd/cmd.go:26: swagger ui is serving at address: http://127.0.0.1:8000/swagger/
+2024-10-20 22:16:41.995 [INFO] {42d361b5542e001835ea252b78768323} /home/going/workspace/golang/src/github.com/bugsmo/go-example/hotgo/internal/cmd/cmd.go:26: openapi specification is serving at address: http://127.0.0.1:8000/api.json
+2024-10-20 22:16:41.994 [INFO] pid[64270]: http server started listening on [:8000]
+
+  ADDRESS | METHOD |          ROUTE           |                           HANDLER                            |           MIDDLEWARE             
+----------|--------|--------------------------|--------------------------------------------------------------|----------------------------------
+  :8000   | GET    | /admin/hello             | hotgo/internal/controller/hello.(*ControllerV1).Hello        | service.IMiddleware.AdminAuth    
+          |        |                          |                                                              | ghttp.MiddlewareHandlerResponse  
+----------|--------|--------------------------|--------------------------------------------------------------|----------------------------------
+  :8000   | POST   | /admin/site/accountLogin | hotgo/internal/controller/admin/common.(*cSite).AccountLogin |                                  
+----------|--------|--------------------------|--------------------------------------------------------------|----------------------------------
+  :8000   | ALL    | /api.json                | github.com/gogf/gf/v2/net/ghttp.(*Server).openapiSpec        |                                  
+----------|--------|--------------------------|--------------------------------------------------------------|----------------------------------
+  :8000   | ALL    | /pprof/*action           | github.com/gogf/gf/v2/net/ghttp.(*utilPProf).Index           |                                  
+----------|--------|--------------------------|--------------------------------------------------------------|----------------------------------
+  :8000   | ALL    | /pprof/cmdline           | github.com/gogf/gf/v2/net/ghttp.(*utilPProf).Cmdline         |                                  
+----------|--------|--------------------------|--------------------------------------------------------------|----------------------------------
+  :8000   | ALL    | /pprof/profile           | github.com/gogf/gf/v2/net/ghttp.(*utilPProf).Profile         |                                  
+----------|--------|--------------------------|--------------------------------------------------------------|----------------------------------
+  :8000   | ALL    | /pprof/symbol            | github.com/gogf/gf/v2/net/ghttp.(*utilPProf).Symbol          |                                  
+----------|--------|--------------------------|--------------------------------------------------------------|----------------------------------
+  :8000   | ALL    | /pprof/trace             | github.com/gogf/gf/v2/net/ghttp.(*utilPProf).Trace           |                                  
+----------|--------|--------------------------|--------------------------------------------------------------|----------------------------------
+  :8000   | ALL    | /swagger/*               | github.com/gogf/gf/v2/net/ghttp.(*Server).swaggerUI          | HOOK_BEFORE_SERVE                
+----------|--------|--------------------------|--------------------------------------------------------------|----------------------------------
+
+2024-10-20 22:16:50.849 [INFO] {42d361b5542e001835ea252b78768323} /home/going/workspace/golang/src/github.com/bugsmo/go-example/hotgo/internal/cmd/cmd.go:26: swagger ui is serving at address: http://127.0.0.1:8000/swagger/
+2024-10-20 22:16:50.849 [INFO] {42d361b5542e001835ea252b78768323} /home/going/workspace/golang/src/github.com/bugsmo/go-example/hotgo/internal/cmd/cmd.go:26: openapi specification is serving at address: http://127.0.0.1:8000/api.json
+2024-10-20 22:16:50.849 [INFO] pid[64666]: http server started listening on [:8000]
+
+  ADDRESS | METHOD |          ROUTE           |                           HANDLER                            |           MIDDLEWARE             
+----------|--------|--------------------------|--------------------------------------------------------------|----------------------------------
+  :8000   | GET    | /admin/hello             | hotgo/internal/controller/hello.(*ControllerV1).Hello        | service.IMiddleware.AdminAuth    
+          |        |                          |                                                              | ghttp.MiddlewareHandlerResponse  
+----------|--------|--------------------------|--------------------------------------------------------------|----------------------------------
+  :8000   | POST   | /admin/site/accountLogin | hotgo/internal/controller/admin/common.(*cSite).AccountLogin |                                  
+----------|--------|--------------------------|--------------------------------------------------------------|----------------------------------
+  :8000   | ALL    | /api.json                | github.com/gogf/gf/v2/net/ghttp.(*Server).openapiSpec        |                                  
+----------|--------|--------------------------|--------------------------------------------------------------|----------------------------------
+  :8000   | ALL    | /pprof/*action           | github.com/gogf/gf/v2/net/ghttp.(*utilPProf).Index           |                                  
+----------|--------|--------------------------|--------------------------------------------------------------|----------------------------------
+  :8000   | ALL    | /pprof/cmdline           | github.com/gogf/gf/v2/net/ghttp.(*utilPProf).Cmdline         |                                  
+----------|--------|--------------------------|--------------------------------------------------------------|----------------------------------
+  :8000   | ALL    | /pprof/profile           | github.com/gogf/gf/v2/net/ghttp.(*utilPProf).Profile         |                                  
+----------|--------|--------------------------|--------------------------------------------------------------|----------------------------------
+  :8000   | ALL    | /pprof/symbol            | github.com/gogf/gf/v2/net/ghttp.(*utilPProf).Symbol          |                                  
+----------|--------|--------------------------|--------------------------------------------------------------|----------------------------------
+  :8000   | ALL    | /pprof/trace             | github.com/gogf/gf/v2/net/ghttp.(*utilPProf).Trace           |                                  
+----------|--------|--------------------------|--------------------------------------------------------------|----------------------------------
+  :8000   | ALL    | /swagger/*               | github.com/gogf/gf/v2/net/ghttp.(*Server).swaggerUI          | HOOK_BEFORE_SERVE                
+----------|--------|--------------------------|--------------------------------------------------------------|----------------------------------
+
+2024-10-20 22:17:05.240 [INFO] {42d361b5542e001835ea252b78768323} /home/going/workspace/golang/src/github.com/bugsmo/go-example/hotgo/internal/cmd/cmd.go:26: swagger ui is serving at address: http://127.0.0.1:8000/swagger/
+2024-10-20 22:17:05.241 [INFO] {42d361b5542e001835ea252b78768323} /home/going/workspace/golang/src/github.com/bugsmo/go-example/hotgo/internal/cmd/cmd.go:26: openapi specification is serving at address: http://127.0.0.1:8000/api.json
+2024-10-20 22:17:05.240 [INFO] pid[65172]: http server started listening on [:8000]
+
+  ADDRESS | METHOD |          ROUTE           |                           HANDLER                            |           MIDDLEWARE             
+----------|--------|--------------------------|--------------------------------------------------------------|----------------------------------
+  :8000   | GET    | /admin/hello             | hotgo/internal/controller/hello.(*ControllerV1).Hello        | service.IMiddleware.AdminAuth    
+          |        |                          |                                                              | ghttp.MiddlewareHandlerResponse  
+----------|--------|--------------------------|--------------------------------------------------------------|----------------------------------
+  :8000   | POST   | /admin/site/accountLogin | hotgo/internal/controller/admin/common.(*cSite).AccountLogin |                                  
+----------|--------|--------------------------|--------------------------------------------------------------|----------------------------------
+  :8000   | ALL    | /api.json                | github.com/gogf/gf/v2/net/ghttp.(*Server).openapiSpec        |                                  
+----------|--------|--------------------------|--------------------------------------------------------------|----------------------------------
+  :8000   | ALL    | /pprof/*action           | github.com/gogf/gf/v2/net/ghttp.(*utilPProf).Index           |                                  
+----------|--------|--------------------------|--------------------------------------------------------------|----------------------------------
+  :8000   | ALL    | /pprof/cmdline           | github.com/gogf/gf/v2/net/ghttp.(*utilPProf).Cmdline         |                                  
+----------|--------|--------------------------|--------------------------------------------------------------|----------------------------------
+  :8000   | ALL    | /pprof/profile           | github.com/gogf/gf/v2/net/ghttp.(*utilPProf).Profile         |                                  
+----------|--------|--------------------------|--------------------------------------------------------------|----------------------------------
+  :8000   | ALL    | /pprof/symbol            | github.com/gogf/gf/v2/net/ghttp.(*utilPProf).Symbol          |                                  
+----------|--------|--------------------------|--------------------------------------------------------------|----------------------------------
+  :8000   | ALL    | /pprof/trace             | github.com/gogf/gf/v2/net/ghttp.(*utilPProf).Trace           |                                  
+----------|--------|--------------------------|--------------------------------------------------------------|----------------------------------
+  :8000   | ALL    | /swagger/*               | github.com/gogf/gf/v2/net/ghttp.(*Server).swaggerUI          | HOOK_BEFORE_SERVE                
+----------|--------|--------------------------|--------------------------------------------------------------|----------------------------------
+
+2024-10-20 22:17:32.981 [INFO] {42d361b5542e001835ea252b78768323} /home/going/workspace/golang/src/github.com/bugsmo/go-example/hotgo/internal/cmd/cmd.go:26: swagger ui is serving at address: http://127.0.0.1:8000/swagger/
+2024-10-20 22:17:32.981 [INFO] {42d361b5542e001835ea252b78768323} /home/going/workspace/golang/src/github.com/bugsmo/go-example/hotgo/internal/cmd/cmd.go:26: openapi specification is serving at address: http://127.0.0.1:8000/api.json
+2024-10-20 22:17:32.981 [INFO] pid[65735]: http server started listening on [:8000]
+
+  ADDRESS | METHOD |          ROUTE           |                           HANDLER                            |           MIDDLEWARE             
+----------|--------|--------------------------|--------------------------------------------------------------|----------------------------------
+  :8000   | GET    | /admin/hello             | hotgo/internal/controller/hello.(*ControllerV1).Hello        | service.IMiddleware.AdminAuth    
+          |        |                          |                                                              | ghttp.MiddlewareHandlerResponse  
+----------|--------|--------------------------|--------------------------------------------------------------|----------------------------------
+  :8000   | POST   | /admin/site/accountLogin | hotgo/internal/controller/admin/common.(*cSite).AccountLogin |                                  
+----------|--------|--------------------------|--------------------------------------------------------------|----------------------------------
+  :8000   | ALL    | /api.json                | github.com/gogf/gf/v2/net/ghttp.(*Server).openapiSpec        |                                  
+----------|--------|--------------------------|--------------------------------------------------------------|----------------------------------
+  :8000   | ALL    | /pprof/*action           | github.com/gogf/gf/v2/net/ghttp.(*utilPProf).Index           |                                  
+----------|--------|--------------------------|--------------------------------------------------------------|----------------------------------
+  :8000   | ALL    | /pprof/cmdline           | github.com/gogf/gf/v2/net/ghttp.(*utilPProf).Cmdline         |                                  
+----------|--------|--------------------------|--------------------------------------------------------------|----------------------------------
+  :8000   | ALL    | /pprof/profile           | github.com/gogf/gf/v2/net/ghttp.(*utilPProf).Profile         |                                  
+----------|--------|--------------------------|--------------------------------------------------------------|----------------------------------
+  :8000   | ALL    | /pprof/symbol            | github.com/gogf/gf/v2/net/ghttp.(*utilPProf).Symbol          |                                  
+----------|--------|--------------------------|--------------------------------------------------------------|----------------------------------
+  :8000   | ALL    | /pprof/trace             | github.com/gogf/gf/v2/net/ghttp.(*utilPProf).Trace           |                                  
+----------|--------|--------------------------|--------------------------------------------------------------|----------------------------------
+  :8000   | ALL    | /swagger/*               | github.com/gogf/gf/v2/net/ghttp.(*Server).swaggerUI          | HOOK_BEFORE_SERVE                
+----------|--------|--------------------------|--------------------------------------------------------------|----------------------------------
+
+2024-10-20 22:17:39.721 [INFO] {42d361b5542e001835ea252b78768323} /home/going/workspace/golang/src/github.com/bugsmo/go-example/hotgo/internal/cmd/cmd.go:26: swagger ui is serving at address: http://127.0.0.1:8000/swagger/
+2024-10-20 22:17:39.721 [INFO] {42d361b5542e001835ea252b78768323} /home/going/workspace/golang/src/github.com/bugsmo/go-example/hotgo/internal/cmd/cmd.go:26: openapi specification is serving at address: http://127.0.0.1:8000/api.json
+2024-10-20 22:17:39.721 [INFO] pid[66127]: http server started listening on [:8000]
+
+  ADDRESS | METHOD |          ROUTE           |                           HANDLER                            |           MIDDLEWARE             
+----------|--------|--------------------------|--------------------------------------------------------------|----------------------------------
+  :8000   | GET    | /admin/hello             | hotgo/internal/controller/hello.(*ControllerV1).Hello        | service.IMiddleware.AdminAuth    
+          |        |                          |                                                              | ghttp.MiddlewareHandlerResponse  
+----------|--------|--------------------------|--------------------------------------------------------------|----------------------------------
+  :8000   | POST   | /admin/site/accountLogin | hotgo/internal/controller/admin/common.(*cSite).AccountLogin |                                  
+----------|--------|--------------------------|--------------------------------------------------------------|----------------------------------
+  :8000   | ALL    | /api.json                | github.com/gogf/gf/v2/net/ghttp.(*Server).openapiSpec        |                                  
+----------|--------|--------------------------|--------------------------------------------------------------|----------------------------------
+  :8000   | ALL    | /pprof/*action           | github.com/gogf/gf/v2/net/ghttp.(*utilPProf).Index           |                                  
+----------|--------|--------------------------|--------------------------------------------------------------|----------------------------------
+  :8000   | ALL    | /pprof/cmdline           | github.com/gogf/gf/v2/net/ghttp.(*utilPProf).Cmdline         |                                  
+----------|--------|--------------------------|--------------------------------------------------------------|----------------------------------
+  :8000   | ALL    | /pprof/profile           | github.com/gogf/gf/v2/net/ghttp.(*utilPProf).Profile         |                                  
+----------|--------|--------------------------|--------------------------------------------------------------|----------------------------------
+  :8000   | ALL    | /pprof/symbol            | github.com/gogf/gf/v2/net/ghttp.(*utilPProf).Symbol          |                                  
+----------|--------|--------------------------|--------------------------------------------------------------|----------------------------------
+  :8000   | ALL    | /pprof/trace             | github.com/gogf/gf/v2/net/ghttp.(*utilPProf).Trace           |                                  
+----------|--------|--------------------------|--------------------------------------------------------------|----------------------------------
+  :8000   | ALL    | /swagger/*               | github.com/gogf/gf/v2/net/ghttp.(*Server).swaggerUI          | HOOK_BEFORE_SERVE                
+----------|--------|--------------------------|--------------------------------------------------------------|----------------------------------
+
+2024-10-20 22:18:02.922 [INFO] {a889a1e0f32e001861120c7f97245ac3} /home/going/workspace/golang/src/github.com/bugsmo/go-example/hotgo/internal/cmd/cmd.go:26: swagger ui is serving at address: http://127.0.0.1:8000/swagger/
+2024-10-20 22:18:02.922 [INFO] {a889a1e0f32e001861120c7f97245ac3} /home/going/workspace/golang/src/github.com/bugsmo/go-example/hotgo/internal/cmd/cmd.go:26: openapi specification is serving at address: http://127.0.0.1:8000/api.json
+2024-10-20 22:18:02.922 [INFO] pid[66817]: http server started listening on [:8000]
+
+  ADDRESS | METHOD |          ROUTE           |                           HANDLER                            |           MIDDLEWARE             
+----------|--------|--------------------------|--------------------------------------------------------------|----------------------------------
+  :8000   | GET    | /admin/hello             | hotgo/internal/controller/hello.(*ControllerV1).Hello        | service.IMiddleware.AdminAuth    
+          |        |                          |                                                              | ghttp.MiddlewareHandlerResponse  
+----------|--------|--------------------------|--------------------------------------------------------------|----------------------------------
+  :8000   | POST   | /admin/site/accountLogin | hotgo/internal/controller/admin/common.(*cSite).AccountLogin |                                  
+----------|--------|--------------------------|--------------------------------------------------------------|----------------------------------
+  :8000   | ALL    | /api.json                | github.com/gogf/gf/v2/net/ghttp.(*Server).openapiSpec        |                                  
+----------|--------|--------------------------|--------------------------------------------------------------|----------------------------------
+  :8000   | ALL    | /pprof/*action           | github.com/gogf/gf/v2/net/ghttp.(*utilPProf).Index           |                                  
+----------|--------|--------------------------|--------------------------------------------------------------|----------------------------------
+  :8000   | ALL    | /pprof/cmdline           | github.com/gogf/gf/v2/net/ghttp.(*utilPProf).Cmdline         |                                  
+----------|--------|--------------------------|--------------------------------------------------------------|----------------------------------
+  :8000   | ALL    | /pprof/profile           | github.com/gogf/gf/v2/net/ghttp.(*utilPProf).Profile         |                                  
+----------|--------|--------------------------|--------------------------------------------------------------|----------------------------------
+  :8000   | ALL    | /pprof/symbol            | github.com/gogf/gf/v2/net/ghttp.(*utilPProf).Symbol          |                                  
+----------|--------|--------------------------|--------------------------------------------------------------|----------------------------------
+  :8000   | ALL    | /pprof/trace             | github.com/gogf/gf/v2/net/ghttp.(*utilPProf).Trace           |                                  
+----------|--------|--------------------------|--------------------------------------------------------------|----------------------------------
+  :8000   | ALL    | /swagger/*               | github.com/gogf/gf/v2/net/ghttp.(*Server).swaggerUI          | HOOK_BEFORE_SERVE                
+----------|--------|--------------------------|--------------------------------------------------------------|----------------------------------
+
+2024-10-20 22:19:21.723 [INFO] {a889a1e0f32e001861120c7f97245ac3} /home/going/workspace/golang/src/github.com/bugsmo/go-example/hotgo/internal/cmd/cmd.go:26: swagger ui is serving at address: http://127.0.0.1:8000/swagger/
+2024-10-20 22:19:21.724 [INFO] {a889a1e0f32e001861120c7f97245ac3} /home/going/workspace/golang/src/github.com/bugsmo/go-example/hotgo/internal/cmd/cmd.go:26: openapi specification is serving at address: http://127.0.0.1:8000/api.json
+2024-10-20 22:19:21.723 [INFO] pid[67692]: http server started listening on [:8000]
+
+  ADDRESS | METHOD |          ROUTE           |                           HANDLER                            |           MIDDLEWARE             
+----------|--------|--------------------------|--------------------------------------------------------------|----------------------------------
+  :8000   | GET    | /admin/hello             | hotgo/internal/controller/hello.(*ControllerV1).Hello        | service.IMiddleware.AdminAuth    
+          |        |                          |                                                              | ghttp.MiddlewareHandlerResponse  
+----------|--------|--------------------------|--------------------------------------------------------------|----------------------------------
+  :8000   | POST   | /admin/site/accountLogin | hotgo/internal/controller/admin/common.(*cSite).AccountLogin |                                  
+----------|--------|--------------------------|--------------------------------------------------------------|----------------------------------
+  :8000   | ALL    | /api.json                | github.com/gogf/gf/v2/net/ghttp.(*Server).openapiSpec        |                                  
+----------|--------|--------------------------|--------------------------------------------------------------|----------------------------------
+  :8000   | ALL    | /pprof/*action           | github.com/gogf/gf/v2/net/ghttp.(*utilPProf).Index           |                                  
+----------|--------|--------------------------|--------------------------------------------------------------|----------------------------------
+  :8000   | ALL    | /pprof/cmdline           | github.com/gogf/gf/v2/net/ghttp.(*utilPProf).Cmdline         |                                  
+----------|--------|--------------------------|--------------------------------------------------------------|----------------------------------
+  :8000   | ALL    | /pprof/profile           | github.com/gogf/gf/v2/net/ghttp.(*utilPProf).Profile         |                                  
+----------|--------|--------------------------|--------------------------------------------------------------|----------------------------------
+  :8000   | ALL    | /pprof/symbol            | github.com/gogf/gf/v2/net/ghttp.(*utilPProf).Symbol          |                                  
+----------|--------|--------------------------|--------------------------------------------------------------|----------------------------------
+  :8000   | ALL    | /pprof/trace             | github.com/gogf/gf/v2/net/ghttp.(*utilPProf).Trace           |                                  
+----------|--------|--------------------------|--------------------------------------------------------------|----------------------------------
+  :8000   | ALL    | /swagger/*               | github.com/gogf/gf/v2/net/ghttp.(*Server).swaggerUI          | HOOK_BEFORE_SERVE                
+----------|--------|--------------------------|--------------------------------------------------------------|----------------------------------
+
+2024-10-20 22:19:39.030 [INFO] {a889a1e0f32e001861120c7f97245ac3} /home/going/workspace/golang/src/github.com/bugsmo/go-example/hotgo/internal/cmd/cmd.go:26: swagger ui is serving at address: http://127.0.0.1:8000/swagger/
+2024-10-20 22:19:39.031 [INFO] {a889a1e0f32e001861120c7f97245ac3} /home/going/workspace/golang/src/github.com/bugsmo/go-example/hotgo/internal/cmd/cmd.go:26: openapi specification is serving at address: http://127.0.0.1:8000/api.json
+2024-10-20 22:19:39.030 [INFO] pid[68558]: http server started listening on [:8000]
+
+  ADDRESS | METHOD |          ROUTE           |                           HANDLER                            |           MIDDLEWARE             
+----------|--------|--------------------------|--------------------------------------------------------------|----------------------------------
+  :8000   | GET    | /admin/hello             | hotgo/internal/controller/hello.(*ControllerV1).Hello        | service.IMiddleware.AdminAuth    
+          |        |                          |                                                              | ghttp.MiddlewareHandlerResponse  
+----------|--------|--------------------------|--------------------------------------------------------------|----------------------------------
+  :8000   | POST   | /admin/site/accountLogin | hotgo/internal/controller/admin/common.(*cSite).AccountLogin |                                  
+----------|--------|--------------------------|--------------------------------------------------------------|----------------------------------
+  :8000   | ALL    | /api.json                | github.com/gogf/gf/v2/net/ghttp.(*Server).openapiSpec        |                                  
+----------|--------|--------------------------|--------------------------------------------------------------|----------------------------------
+  :8000   | ALL    | /pprof/*action           | github.com/gogf/gf/v2/net/ghttp.(*utilPProf).Index           |                                  
+----------|--------|--------------------------|--------------------------------------------------------------|----------------------------------
+  :8000   | ALL    | /pprof/cmdline           | github.com/gogf/gf/v2/net/ghttp.(*utilPProf).Cmdline         |                                  
+----------|--------|--------------------------|--------------------------------------------------------------|----------------------------------
+  :8000   | ALL    | /pprof/profile           | github.com/gogf/gf/v2/net/ghttp.(*utilPProf).Profile         |                                  
+----------|--------|--------------------------|--------------------------------------------------------------|----------------------------------
+  :8000   | ALL    | /pprof/symbol            | github.com/gogf/gf/v2/net/ghttp.(*utilPProf).Symbol          |                                  
+----------|--------|--------------------------|--------------------------------------------------------------|----------------------------------
+  :8000   | ALL    | /pprof/trace             | github.com/gogf/gf/v2/net/ghttp.(*utilPProf).Trace           |                                  
+----------|--------|--------------------------|--------------------------------------------------------------|----------------------------------
+  :8000   | ALL    | /swagger/*               | github.com/gogf/gf/v2/net/ghttp.(*Server).swaggerUI          | HOOK_BEFORE_SERVE                
+----------|--------|--------------------------|--------------------------------------------------------------|----------------------------------
+
+2024-10-20 22:19:59.481 [INFO] {a889a1e0f32e001861120c7f97245ac3} /home/going/workspace/golang/src/github.com/bugsmo/go-example/hotgo/internal/cmd/cmd.go:26: swagger ui is serving at address: http://127.0.0.1:8000/swagger/
+2024-10-20 22:19:59.482 [INFO] {a889a1e0f32e001861120c7f97245ac3} /home/going/workspace/golang/src/github.com/bugsmo/go-example/hotgo/internal/cmd/cmd.go:26: openapi specification is serving at address: http://127.0.0.1:8000/api.json
+2024-10-20 22:19:59.481 [INFO] pid[69449]: http server started listening on [:8000]
+
+  ADDRESS | METHOD |          ROUTE           |                           HANDLER                            |           MIDDLEWARE             
+----------|--------|--------------------------|--------------------------------------------------------------|----------------------------------
+  :8000   | GET    | /admin/hello             | hotgo/internal/controller/hello.(*ControllerV1).Hello        | service.IMiddleware.AdminAuth    
+          |        |                          |                                                              | ghttp.MiddlewareHandlerResponse  
+----------|--------|--------------------------|--------------------------------------------------------------|----------------------------------
+  :8000   | POST   | /admin/site/accountLogin | hotgo/internal/controller/admin/common.(*cSite).AccountLogin |                                  
+----------|--------|--------------------------|--------------------------------------------------------------|----------------------------------
+  :8000   | ALL    | /api.json                | github.com/gogf/gf/v2/net/ghttp.(*Server).openapiSpec        |                                  
+----------|--------|--------------------------|--------------------------------------------------------------|----------------------------------
+  :8000   | ALL    | /pprof/*action           | github.com/gogf/gf/v2/net/ghttp.(*utilPProf).Index           |                                  
+----------|--------|--------------------------|--------------------------------------------------------------|----------------------------------
+  :8000   | ALL    | /pprof/cmdline           | github.com/gogf/gf/v2/net/ghttp.(*utilPProf).Cmdline         |                                  
+----------|--------|--------------------------|--------------------------------------------------------------|----------------------------------
+  :8000   | ALL    | /pprof/profile           | github.com/gogf/gf/v2/net/ghttp.(*utilPProf).Profile         |                                  
+----------|--------|--------------------------|--------------------------------------------------------------|----------------------------------
+  :8000   | ALL    | /pprof/symbol            | github.com/gogf/gf/v2/net/ghttp.(*utilPProf).Symbol          |                                  
+----------|--------|--------------------------|--------------------------------------------------------------|----------------------------------
+  :8000   | ALL    | /pprof/trace             | github.com/gogf/gf/v2/net/ghttp.(*utilPProf).Trace           |                                  
+----------|--------|--------------------------|--------------------------------------------------------------|----------------------------------
+  :8000   | ALL    | /swagger/*               | github.com/gogf/gf/v2/net/ghttp.(*Server).swaggerUI          | HOOK_BEFORE_SERVE                
+----------|--------|--------------------------|--------------------------------------------------------------|----------------------------------
+
+2024-10-20 22:20:02.097 [INFO] {a889a1e0f32e001861120c7f97245ac3} /home/going/workspace/golang/src/github.com/bugsmo/go-example/hotgo/internal/cmd/cmd.go:26: swagger ui is serving at address: http://127.0.0.1:8000/swagger/
+2024-10-20 22:20:02.098 [INFO] {a889a1e0f32e001861120c7f97245ac3} /home/going/workspace/golang/src/github.com/bugsmo/go-example/hotgo/internal/cmd/cmd.go:26: openapi specification is serving at address: http://127.0.0.1:8000/api.json
+2024-10-20 22:20:02.097 [INFO] pid[69840]: http server started listening on [:8000]
+
+  ADDRESS | METHOD |          ROUTE           |                           HANDLER                            |           MIDDLEWARE             
+----------|--------|--------------------------|--------------------------------------------------------------|----------------------------------
+  :8000   | GET    | /admin/hello             | hotgo/internal/controller/hello.(*ControllerV1).Hello        | service.IMiddleware.AdminAuth    
+          |        |                          |                                                              | ghttp.MiddlewareHandlerResponse  
+----------|--------|--------------------------|--------------------------------------------------------------|----------------------------------
+  :8000   | POST   | /admin/site/accountLogin | hotgo/internal/controller/admin/common.(*cSite).AccountLogin |                                  
+----------|--------|--------------------------|--------------------------------------------------------------|----------------------------------
+  :8000   | ALL    | /api.json                | github.com/gogf/gf/v2/net/ghttp.(*Server).openapiSpec        |                                  
+----------|--------|--------------------------|--------------------------------------------------------------|----------------------------------
+  :8000   | ALL    | /pprof/*action           | github.com/gogf/gf/v2/net/ghttp.(*utilPProf).Index           |                                  
+----------|--------|--------------------------|--------------------------------------------------------------|----------------------------------
+  :8000   | ALL    | /pprof/cmdline           | github.com/gogf/gf/v2/net/ghttp.(*utilPProf).Cmdline         |                                  
+----------|--------|--------------------------|--------------------------------------------------------------|----------------------------------
+  :8000   | ALL    | /pprof/profile           | github.com/gogf/gf/v2/net/ghttp.(*utilPProf).Profile         |                                  
+----------|--------|--------------------------|--------------------------------------------------------------|----------------------------------
+  :8000   | ALL    | /pprof/symbol            | github.com/gogf/gf/v2/net/ghttp.(*utilPProf).Symbol          |                                  
+----------|--------|--------------------------|--------------------------------------------------------------|----------------------------------
+  :8000   | ALL    | /pprof/trace             | github.com/gogf/gf/v2/net/ghttp.(*utilPProf).Trace           |                                  
+----------|--------|--------------------------|--------------------------------------------------------------|----------------------------------
+  :8000   | ALL    | /swagger/*               | github.com/gogf/gf/v2/net/ghttp.(*Server).swaggerUI          | HOOK_BEFORE_SERVE                
+----------|--------|--------------------------|--------------------------------------------------------------|----------------------------------
+
+2024-10-20 22:20:36.451 [INFO] {f87dff99172f001821875857849988eb} /home/going/workspace/golang/src/github.com/bugsmo/go-example/hotgo/internal/cmd/cmd.go:26: swagger ui is serving at address: http://127.0.0.1:8000/swagger/
+2024-10-20 22:20:36.451 [INFO] {f87dff99172f001821875857849988eb} /home/going/workspace/golang/src/github.com/bugsmo/go-example/hotgo/internal/cmd/cmd.go:26: openapi specification is serving at address: http://127.0.0.1:8000/api.json
+2024-10-20 22:20:36.450 [INFO] pid[70632]: http server started listening on [:8000]
+
+  ADDRESS | METHOD |          ROUTE           |                           HANDLER                            |           MIDDLEWARE             
+----------|--------|--------------------------|--------------------------------------------------------------|----------------------------------
+  :8000   | GET    | /admin/hello             | hotgo/internal/controller/hello.(*ControllerV1).Hello        | service.IMiddleware.AdminAuth    
+          |        |                          |                                                              | ghttp.MiddlewareHandlerResponse  
+----------|--------|--------------------------|--------------------------------------------------------------|----------------------------------
+  :8000   | POST   | /admin/site/accountLogin | hotgo/internal/controller/admin/common.(*cSite).AccountLogin |                                  
+----------|--------|--------------------------|--------------------------------------------------------------|----------------------------------
+  :8000   | ALL    | /api.json                | github.com/gogf/gf/v2/net/ghttp.(*Server).openapiSpec        |                                  
+----------|--------|--------------------------|--------------------------------------------------------------|----------------------------------
+  :8000   | ALL    | /pprof/*action           | github.com/gogf/gf/v2/net/ghttp.(*utilPProf).Index           |                                  
+----------|--------|--------------------------|--------------------------------------------------------------|----------------------------------
+  :8000   | ALL    | /pprof/cmdline           | github.com/gogf/gf/v2/net/ghttp.(*utilPProf).Cmdline         |                                  
+----------|--------|--------------------------|--------------------------------------------------------------|----------------------------------
+  :8000   | ALL    | /pprof/profile           | github.com/gogf/gf/v2/net/ghttp.(*utilPProf).Profile         |                                  
+----------|--------|--------------------------|--------------------------------------------------------------|----------------------------------
+  :8000   | ALL    | /pprof/symbol            | github.com/gogf/gf/v2/net/ghttp.(*utilPProf).Symbol          |                                  
+----------|--------|--------------------------|--------------------------------------------------------------|----------------------------------
+  :8000   | ALL    | /pprof/trace             | github.com/gogf/gf/v2/net/ghttp.(*utilPProf).Trace           |                                  
+----------|--------|--------------------------|--------------------------------------------------------------|----------------------------------
+  :8000   | ALL    | /swagger/*               | github.com/gogf/gf/v2/net/ghttp.(*Server).swaggerUI          | HOOK_BEFORE_SERVE                
+----------|--------|--------------------------|--------------------------------------------------------------|----------------------------------
+
+2024-10-20 22:22:45.809 [INFO] {f87dff99172f001821875857849988eb} /home/going/workspace/golang/src/github.com/bugsmo/go-example/hotgo/internal/cmd/cmd.go:26: swagger ui is serving at address: http://127.0.0.1:8000/swagger/
+2024-10-20 22:22:45.809 [INFO] pid[72197]: http server started listening on [:8000]
+2024-10-20 22:22:45.811 [INFO] {f87dff99172f001821875857849988eb} /home/going/workspace/golang/src/github.com/bugsmo/go-example/hotgo/internal/cmd/cmd.go:26: openapi specification is serving at address: http://127.0.0.1:8000/api.json
+
+  ADDRESS | METHOD |          ROUTE           |                           HANDLER                            |           MIDDLEWARE             
+----------|--------|--------------------------|--------------------------------------------------------------|----------------------------------
+  :8000   | GET    | /admin/hello             | hotgo/internal/controller/hello.(*ControllerV1).Hello        | service.IMiddleware.AdminAuth    
+          |        |                          |                                                              | ghttp.MiddlewareHandlerResponse  
+----------|--------|--------------------------|--------------------------------------------------------------|----------------------------------
+  :8000   | POST   | /admin/site/accountLogin | hotgo/internal/controller/admin/common.(*cSite).AccountLogin |                                  
+----------|--------|--------------------------|--------------------------------------------------------------|----------------------------------
+  :8000   | ALL    | /api.json                | github.com/gogf/gf/v2/net/ghttp.(*Server).openapiSpec        |                                  
+----------|--------|--------------------------|--------------------------------------------------------------|----------------------------------
+  :8000   | ALL    | /pprof/*action           | github.com/gogf/gf/v2/net/ghttp.(*utilPProf).Index           |                                  
+----------|--------|--------------------------|--------------------------------------------------------------|----------------------------------
+  :8000   | ALL    | /pprof/cmdline           | github.com/gogf/gf/v2/net/ghttp.(*utilPProf).Cmdline         |                                  
+----------|--------|--------------------------|--------------------------------------------------------------|----------------------------------
+  :8000   | ALL    | /pprof/profile           | github.com/gogf/gf/v2/net/ghttp.(*utilPProf).Profile         |                                  
+----------|--------|--------------------------|--------------------------------------------------------------|----------------------------------
+  :8000   | ALL    | /pprof/symbol            | github.com/gogf/gf/v2/net/ghttp.(*utilPProf).Symbol          |                                  
+----------|--------|--------------------------|--------------------------------------------------------------|----------------------------------
+  :8000   | ALL    | /pprof/trace             | github.com/gogf/gf/v2/net/ghttp.(*utilPProf).Trace           |                                  
+----------|--------|--------------------------|--------------------------------------------------------------|----------------------------------
+  :8000   | ALL    | /swagger/*               | github.com/gogf/gf/v2/net/ghttp.(*Server).swaggerUI          | HOOK_BEFORE_SERVE                
+----------|--------|--------------------------|--------------------------------------------------------------|----------------------------------
+
+2024-10-20 22:24:27.789 [INFO] {f87dff99172f001821875857849988eb} /home/going/workspace/golang/src/github.com/bugsmo/go-example/hotgo/internal/cmd/cmd.go:26: swagger ui is serving at address: http://127.0.0.1:8000/swagger/
+2024-10-20 22:24:27.790 [INFO] {f87dff99172f001821875857849988eb} /home/going/workspace/golang/src/github.com/bugsmo/go-example/hotgo/internal/cmd/cmd.go:26: openapi specification is serving at address: http://127.0.0.1:8000/api.json
+2024-10-20 22:24:27.789 [INFO] pid[73192]: http server started listening on [:8000]
+
+  ADDRESS | METHOD |          ROUTE           |                           HANDLER                            |           MIDDLEWARE             
+----------|--------|--------------------------|--------------------------------------------------------------|----------------------------------
+  :8000   | GET    | /admin/hello             | hotgo/internal/controller/hello.(*ControllerV1).Hello        | service.IMiddleware.AdminAuth    
+          |        |                          |                                                              | ghttp.MiddlewareHandlerResponse  
+----------|--------|--------------------------|--------------------------------------------------------------|----------------------------------
+  :8000   | POST   | /admin/site/accountLogin | hotgo/internal/controller/admin/common.(*cSite).AccountLogin |                                  
+----------|--------|--------------------------|--------------------------------------------------------------|----------------------------------
+  :8000   | ALL    | /api.json                | github.com/gogf/gf/v2/net/ghttp.(*Server).openapiSpec        |                                  
+----------|--------|--------------------------|--------------------------------------------------------------|----------------------------------
+  :8000   | ALL    | /pprof/*action           | github.com/gogf/gf/v2/net/ghttp.(*utilPProf).Index           |                                  
+----------|--------|--------------------------|--------------------------------------------------------------|----------------------------------
+  :8000   | ALL    | /pprof/cmdline           | github.com/gogf/gf/v2/net/ghttp.(*utilPProf).Cmdline         |                                  
+----------|--------|--------------------------|--------------------------------------------------------------|----------------------------------
+  :8000   | ALL    | /pprof/profile           | github.com/gogf/gf/v2/net/ghttp.(*utilPProf).Profile         |                                  
+----------|--------|--------------------------|--------------------------------------------------------------|----------------------------------
+  :8000   | ALL    | /pprof/symbol            | github.com/gogf/gf/v2/net/ghttp.(*utilPProf).Symbol          |                                  
+----------|--------|--------------------------|--------------------------------------------------------------|----------------------------------
+  :8000   | ALL    | /pprof/trace             | github.com/gogf/gf/v2/net/ghttp.(*utilPProf).Trace           |                                  
+----------|--------|--------------------------|--------------------------------------------------------------|----------------------------------
+  :8000   | ALL    | /swagger/*               | github.com/gogf/gf/v2/net/ghttp.(*Server).swaggerUI          | HOOK_BEFORE_SERVE                
+----------|--------|--------------------------|--------------------------------------------------------------|----------------------------------
+
+2024-10-20 22:24:44.484 [INFO] {f87dff99172f001821875857849988eb} /home/going/workspace/golang/src/github.com/bugsmo/go-example/hotgo/internal/cmd/cmd.go:26: swagger ui is serving at address: http://127.0.0.1:8000/swagger/
+2024-10-20 22:24:44.485 [INFO] {f87dff99172f001821875857849988eb} /home/going/workspace/golang/src/github.com/bugsmo/go-example/hotgo/internal/cmd/cmd.go:26: openapi specification is serving at address: http://127.0.0.1:8000/api.json
+2024-10-20 22:24:44.484 [INFO] pid[73635]: http server started listening on [:8000]
+
+  ADDRESS | METHOD |          ROUTE           |                           HANDLER                            |           MIDDLEWARE             
+----------|--------|--------------------------|--------------------------------------------------------------|----------------------------------
+  :8000   | GET    | /admin/hello             | hotgo/internal/controller/hello.(*ControllerV1).Hello        | service.IMiddleware.AdminAuth    
+          |        |                          |                                                              | ghttp.MiddlewareHandlerResponse  
+----------|--------|--------------------------|--------------------------------------------------------------|----------------------------------
+  :8000   | POST   | /admin/site/accountLogin | hotgo/internal/controller/admin/common.(*cSite).AccountLogin |                                  
+----------|--------|--------------------------|--------------------------------------------------------------|----------------------------------
+  :8000   | ALL    | /api.json                | github.com/gogf/gf/v2/net/ghttp.(*Server).openapiSpec        |                                  
+----------|--------|--------------------------|--------------------------------------------------------------|----------------------------------
+  :8000   | ALL    | /pprof/*action           | github.com/gogf/gf/v2/net/ghttp.(*utilPProf).Index           |                                  
+----------|--------|--------------------------|--------------------------------------------------------------|----------------------------------
+  :8000   | ALL    | /pprof/cmdline           | github.com/gogf/gf/v2/net/ghttp.(*utilPProf).Cmdline         |                                  
+----------|--------|--------------------------|--------------------------------------------------------------|----------------------------------
+  :8000   | ALL    | /pprof/profile           | github.com/gogf/gf/v2/net/ghttp.(*utilPProf).Profile         |                                  
+----------|--------|--------------------------|--------------------------------------------------------------|----------------------------------
+  :8000   | ALL    | /pprof/symbol            | github.com/gogf/gf/v2/net/ghttp.(*utilPProf).Symbol          |                                  
+----------|--------|--------------------------|--------------------------------------------------------------|----------------------------------
+  :8000   | ALL    | /pprof/trace             | github.com/gogf/gf/v2/net/ghttp.(*utilPProf).Trace           |                                  
+----------|--------|--------------------------|--------------------------------------------------------------|----------------------------------
+  :8000   | ALL    | /swagger/*               | github.com/gogf/gf/v2/net/ghttp.(*Server).swaggerUI          | HOOK_BEFORE_SERVE                
+----------|--------|--------------------------|--------------------------------------------------------------|----------------------------------
+
+2024-10-20 22:46:56.333 [INFO] {f87dff99172f001821875857849988eb} /home/going/workspace/golang/src/github.com/bugsmo/go-example/hotgo/internal/cmd/cmd.go:26: swagger ui is serving at address: http://127.0.0.1:8000/swagger/
+2024-10-20 22:46:56.333 [INFO] pid[81998]: http server started listening on [:8000]
+2024-10-20 22:46:56.334 [INFO] {f87dff99172f001821875857849988eb} /home/going/workspace/golang/src/github.com/bugsmo/go-example/hotgo/internal/cmd/cmd.go:26: openapi specification is serving at address: http://127.0.0.1:8000/api.json
+
+  ADDRESS | METHOD |          ROUTE           |                           HANDLER                            |           MIDDLEWARE             
+----------|--------|--------------------------|--------------------------------------------------------------|----------------------------------
+  :8000   | GET    | /admin/hello             | hotgo/internal/controller/hello.(*ControllerV1).Hello        | service.IMiddleware.AdminAuth    
+          |        |                          |                                                              | ghttp.MiddlewareHandlerResponse  
+----------|--------|--------------------------|--------------------------------------------------------------|----------------------------------
+  :8000   | POST   | /admin/site/accountLogin | hotgo/internal/controller/admin/common.(*cSite).AccountLogin |                                  
+----------|--------|--------------------------|--------------------------------------------------------------|----------------------------------
+  :8000   | ALL    | /api.json                | github.com/gogf/gf/v2/net/ghttp.(*Server).openapiSpec        |                                  
+----------|--------|--------------------------|--------------------------------------------------------------|----------------------------------
+  :8000   | ALL    | /pprof/*action           | github.com/gogf/gf/v2/net/ghttp.(*utilPProf).Index           |                                  
+----------|--------|--------------------------|--------------------------------------------------------------|----------------------------------
+  :8000   | ALL    | /pprof/cmdline           | github.com/gogf/gf/v2/net/ghttp.(*utilPProf).Cmdline         |                                  
+----------|--------|--------------------------|--------------------------------------------------------------|----------------------------------
+  :8000   | ALL    | /pprof/profile           | github.com/gogf/gf/v2/net/ghttp.(*utilPProf).Profile         |                                  
+----------|--------|--------------------------|--------------------------------------------------------------|----------------------------------
+  :8000   | ALL    | /pprof/symbol            | github.com/gogf/gf/v2/net/ghttp.(*utilPProf).Symbol          |                                  
+----------|--------|--------------------------|--------------------------------------------------------------|----------------------------------
+  :8000   | ALL    | /pprof/trace             | github.com/gogf/gf/v2/net/ghttp.(*utilPProf).Trace           |                                  
+----------|--------|--------------------------|--------------------------------------------------------------|----------------------------------
+  :8000   | ALL    | /swagger/*               | github.com/gogf/gf/v2/net/ghttp.(*Server).swaggerUI          | HOOK_BEFORE_SERVE                
+----------|--------|--------------------------|--------------------------------------------------------------|----------------------------------
+
+2024-10-20 22:47:11.700 [INFO] {f87dff99172f001821875857849988eb} /home/going/workspace/golang/src/github.com/bugsmo/go-example/hotgo/internal/cmd/cmd.go:26: swagger ui is serving at address: http://127.0.0.1:8000/swagger/
+2024-10-20 22:47:11.701 [INFO] {f87dff99172f001821875857849988eb} /home/going/workspace/golang/src/github.com/bugsmo/go-example/hotgo/internal/cmd/cmd.go:26: openapi specification is serving at address: http://127.0.0.1:8000/api.json
+2024-10-20 22:47:11.700 [INFO] pid[82465]: http server started listening on [:8000]
+
+  ADDRESS | METHOD |          ROUTE           |                           HANDLER                            |           MIDDLEWARE             
+----------|--------|--------------------------|--------------------------------------------------------------|----------------------------------
+  :8000   | GET    | /admin/hello             | hotgo/internal/controller/hello.(*ControllerV1).Hello        | service.IMiddleware.AdminAuth    
+          |        |                          |                                                              | ghttp.MiddlewareHandlerResponse  
+----------|--------|--------------------------|--------------------------------------------------------------|----------------------------------
+  :8000   | POST   | /admin/site/accountLogin | hotgo/internal/controller/admin/common.(*cSite).AccountLogin |                                  
+----------|--------|--------------------------|--------------------------------------------------------------|----------------------------------
+  :8000   | ALL    | /api.json                | github.com/gogf/gf/v2/net/ghttp.(*Server).openapiSpec        |                                  
+----------|--------|--------------------------|--------------------------------------------------------------|----------------------------------
+  :8000   | ALL    | /pprof/*action           | github.com/gogf/gf/v2/net/ghttp.(*utilPProf).Index           |                                  
+----------|--------|--------------------------|--------------------------------------------------------------|----------------------------------
+  :8000   | ALL    | /pprof/cmdline           | github.com/gogf/gf/v2/net/ghttp.(*utilPProf).Cmdline         |                                  
+----------|--------|--------------------------|--------------------------------------------------------------|----------------------------------
+  :8000   | ALL    | /pprof/profile           | github.com/gogf/gf/v2/net/ghttp.(*utilPProf).Profile         |                                  
+----------|--------|--------------------------|--------------------------------------------------------------|----------------------------------
+  :8000   | ALL    | /pprof/symbol            | github.com/gogf/gf/v2/net/ghttp.(*utilPProf).Symbol          |                                  
+----------|--------|--------------------------|--------------------------------------------------------------|----------------------------------
+  :8000   | ALL    | /pprof/trace             | github.com/gogf/gf/v2/net/ghttp.(*utilPProf).Trace           |                                  
+----------|--------|--------------------------|--------------------------------------------------------------|----------------------------------
+  :8000   | ALL    | /swagger/*               | github.com/gogf/gf/v2/net/ghttp.(*Server).swaggerUI          | HOOK_BEFORE_SERVE                
+----------|--------|--------------------------|--------------------------------------------------------------|----------------------------------
+
+2024-10-20 22:47:16.154 [INFO] {c9fb710e8c300018e64cb569dd3383ee} /home/going/workspace/golang/src/github.com/bugsmo/go-example/hotgo/internal/cmd/cmd.go:26: swagger ui is serving at address: http://127.0.0.1:8000/swagger/
+2024-10-20 22:47:16.154 [INFO] {c9fb710e8c300018e64cb569dd3383ee} /home/going/workspace/golang/src/github.com/bugsmo/go-example/hotgo/internal/cmd/cmd.go:26: openapi specification is serving at address: http://127.0.0.1:8000/api.json
+2024-10-20 22:47:16.154 [INFO] pid[82697]: http server started listening on [:8000]
+
+  ADDRESS | METHOD |          ROUTE           |                           HANDLER                            |           MIDDLEWARE             
+----------|--------|--------------------------|--------------------------------------------------------------|----------------------------------
+  :8000   | GET    | /admin/hello             | hotgo/internal/controller/hello.(*ControllerV1).Hello        | service.IMiddleware.AdminAuth    
+          |        |                          |                                                              | ghttp.MiddlewareHandlerResponse  
+----------|--------|--------------------------|--------------------------------------------------------------|----------------------------------
+  :8000   | POST   | /admin/site/accountLogin | hotgo/internal/controller/admin/common.(*cSite).AccountLogin |                                  
+----------|--------|--------------------------|--------------------------------------------------------------|----------------------------------
+  :8000   | ALL    | /api.json                | github.com/gogf/gf/v2/net/ghttp.(*Server).openapiSpec        |                                  
+----------|--------|--------------------------|--------------------------------------------------------------|----------------------------------
+  :8000   | ALL    | /pprof/*action           | github.com/gogf/gf/v2/net/ghttp.(*utilPProf).Index           |                                  
+----------|--------|--------------------------|--------------------------------------------------------------|----------------------------------
+  :8000   | ALL    | /pprof/cmdline           | github.com/gogf/gf/v2/net/ghttp.(*utilPProf).Cmdline         |                                  
+----------|--------|--------------------------|--------------------------------------------------------------|----------------------------------
+  :8000   | ALL    | /pprof/profile           | github.com/gogf/gf/v2/net/ghttp.(*utilPProf).Profile         |                                  
+----------|--------|--------------------------|--------------------------------------------------------------|----------------------------------
+  :8000   | ALL    | /pprof/symbol            | github.com/gogf/gf/v2/net/ghttp.(*utilPProf).Symbol          |                                  
+----------|--------|--------------------------|--------------------------------------------------------------|----------------------------------
+  :8000   | ALL    | /pprof/trace             | github.com/gogf/gf/v2/net/ghttp.(*utilPProf).Trace           |                                  
+----------|--------|--------------------------|--------------------------------------------------------------|----------------------------------
+  :8000   | ALL    | /swagger/*               | github.com/gogf/gf/v2/net/ghttp.(*Server).swaggerUI          | HOOK_BEFORE_SERVE                
+----------|--------|--------------------------|--------------------------------------------------------------|----------------------------------
+
+2024-10-20 22:47:51.858 [INFO] {c9fb710e8c300018e64cb569dd3383ee} /home/going/workspace/golang/src/github.com/bugsmo/go-example/hotgo/internal/cmd/cmd.go:26: swagger ui is serving at address: http://127.0.0.1:8000/swagger/
+2024-10-20 22:47:51.858 [INFO] {c9fb710e8c300018e64cb569dd3383ee} /home/going/workspace/golang/src/github.com/bugsmo/go-example/hotgo/internal/cmd/cmd.go:26: openapi specification is serving at address: http://127.0.0.1:8000/api.json
+2024-10-20 22:47:51.858 [INFO] pid[83281]: http server started listening on [:8000]
+
+  ADDRESS | METHOD |          ROUTE           |                           HANDLER                            |           MIDDLEWARE             
+----------|--------|--------------------------|--------------------------------------------------------------|----------------------------------
+  :8000   | GET    | /admin/hello             | hotgo/internal/controller/hello.(*ControllerV1).Hello        | service.IMiddleware.AdminAuth    
+          |        |                          |                                                              | ghttp.MiddlewareHandlerResponse  
+----------|--------|--------------------------|--------------------------------------------------------------|----------------------------------
+  :8000   | POST   | /admin/site/accountLogin | hotgo/internal/controller/admin/common.(*cSite).AccountLogin |                                  
+----------|--------|--------------------------|--------------------------------------------------------------|----------------------------------
+  :8000   | ALL    | /api.json                | github.com/gogf/gf/v2/net/ghttp.(*Server).openapiSpec        |                                  
+----------|--------|--------------------------|--------------------------------------------------------------|----------------------------------
+  :8000   | ALL    | /pprof/*action           | github.com/gogf/gf/v2/net/ghttp.(*utilPProf).Index           |                                  
+----------|--------|--------------------------|--------------------------------------------------------------|----------------------------------
+  :8000   | ALL    | /pprof/cmdline           | github.com/gogf/gf/v2/net/ghttp.(*utilPProf).Cmdline         |                                  
+----------|--------|--------------------------|--------------------------------------------------------------|----------------------------------
+  :8000   | ALL    | /pprof/profile           | github.com/gogf/gf/v2/net/ghttp.(*utilPProf).Profile         |                                  
+----------|--------|--------------------------|--------------------------------------------------------------|----------------------------------
+  :8000   | ALL    | /pprof/symbol            | github.com/gogf/gf/v2/net/ghttp.(*utilPProf).Symbol          |                                  
+----------|--------|--------------------------|--------------------------------------------------------------|----------------------------------
+  :8000   | ALL    | /pprof/trace             | github.com/gogf/gf/v2/net/ghttp.(*utilPProf).Trace           |                                  
+----------|--------|--------------------------|--------------------------------------------------------------|----------------------------------
+  :8000   | ALL    | /swagger/*               | github.com/gogf/gf/v2/net/ghttp.(*Server).swaggerUI          | HOOK_BEFORE_SERVE                
+----------|--------|--------------------------|--------------------------------------------------------------|----------------------------------
+
+2024-10-20 22:47:53.940 [INFO] {c9fb710e8c300018e64cb569dd3383ee} /home/going/workspace/golang/src/github.com/bugsmo/go-example/hotgo/internal/cmd/cmd.go:26: swagger ui is serving at address: http://127.0.0.1:8000/swagger/
+2024-10-20 22:47:53.940 [INFO] {c9fb710e8c300018e64cb569dd3383ee} /home/going/workspace/golang/src/github.com/bugsmo/go-example/hotgo/internal/cmd/cmd.go:26: openapi specification is serving at address: http://127.0.0.1:8000/api.json
+2024-10-20 22:47:53.940 [INFO] pid[83673]: http server started listening on [:8000]
+
+  ADDRESS | METHOD |          ROUTE           |                           HANDLER                            |           MIDDLEWARE             
+----------|--------|--------------------------|--------------------------------------------------------------|----------------------------------
+  :8000   | GET    | /admin/hello             | hotgo/internal/controller/hello.(*ControllerV1).Hello        | service.IMiddleware.AdminAuth    
+          |        |                          |                                                              | ghttp.MiddlewareHandlerResponse  
+----------|--------|--------------------------|--------------------------------------------------------------|----------------------------------
+  :8000   | POST   | /admin/site/accountLogin | hotgo/internal/controller/admin/common.(*cSite).AccountLogin |                                  
+----------|--------|--------------------------|--------------------------------------------------------------|----------------------------------
+  :8000   | ALL    | /api.json                | github.com/gogf/gf/v2/net/ghttp.(*Server).openapiSpec        |                                  
+----------|--------|--------------------------|--------------------------------------------------------------|----------------------------------
+  :8000   | ALL    | /pprof/*action           | github.com/gogf/gf/v2/net/ghttp.(*utilPProf).Index           |                                  
+----------|--------|--------------------------|--------------------------------------------------------------|----------------------------------
+  :8000   | ALL    | /pprof/cmdline           | github.com/gogf/gf/v2/net/ghttp.(*utilPProf).Cmdline         |                                  
+----------|--------|--------------------------|--------------------------------------------------------------|----------------------------------
+  :8000   | ALL    | /pprof/profile           | github.com/gogf/gf/v2/net/ghttp.(*utilPProf).Profile         |                                  
+----------|--------|--------------------------|--------------------------------------------------------------|----------------------------------
+  :8000   | ALL    | /pprof/symbol            | github.com/gogf/gf/v2/net/ghttp.(*utilPProf).Symbol          |                                  
+----------|--------|--------------------------|--------------------------------------------------------------|----------------------------------
+  :8000   | ALL    | /pprof/trace             | github.com/gogf/gf/v2/net/ghttp.(*utilPProf).Trace           |                                  
+----------|--------|--------------------------|--------------------------------------------------------------|----------------------------------
+  :8000   | ALL    | /swagger/*               | github.com/gogf/gf/v2/net/ghttp.(*Server).swaggerUI          | HOOK_BEFORE_SERVE                
+----------|--------|--------------------------|--------------------------------------------------------------|----------------------------------
+
+2024-10-20 22:51:22.471 [INFO] {c9fb710e8c300018e64cb569dd3383ee} /home/going/workspace/golang/src/github.com/bugsmo/go-example/hotgo/internal/cmd/cmd.go:29: swagger ui is serving at address: http://127.0.0.1:8000/swagger/
+2024-10-20 22:51:22.471 [INFO] {c9fb710e8c300018e64cb569dd3383ee} /home/going/workspace/golang/src/github.com/bugsmo/go-example/hotgo/internal/cmd/cmd.go:29: openapi specification is serving at address: http://127.0.0.1:8000/api.json
+2024-10-20 22:51:22.470 [INFO] pid[86682]: http server started listening on [:8000]
+
+  ADDRESS | METHOD |          ROUTE           |                           HANDLER                            |           MIDDLEWARE             
+----------|--------|--------------------------|--------------------------------------------------------------|----------------------------------
+  :8000   | GET    | /admin/hello             | hotgo/internal/controller/hello.(*ControllerV1).Hello        | service.IMiddleware.AdminAuth    
+          |        |                          |                                                              | ghttp.MiddlewareHandlerResponse  
+----------|--------|--------------------------|--------------------------------------------------------------|----------------------------------
+  :8000   | POST   | /admin/site/accountLogin | hotgo/internal/controller/admin/common.(*cSite).AccountLogin |                                  
+----------|--------|--------------------------|--------------------------------------------------------------|----------------------------------
+  :8000   | ALL    | /api.json                | github.com/gogf/gf/v2/net/ghttp.(*Server).openapiSpec        |                                  
+----------|--------|--------------------------|--------------------------------------------------------------|----------------------------------
+  :8000   | ALL    | /pprof/*action           | github.com/gogf/gf/v2/net/ghttp.(*utilPProf).Index           |                                  
+----------|--------|--------------------------|--------------------------------------------------------------|----------------------------------
+  :8000   | ALL    | /pprof/cmdline           | github.com/gogf/gf/v2/net/ghttp.(*utilPProf).Cmdline         |                                  
+----------|--------|--------------------------|--------------------------------------------------------------|----------------------------------
+  :8000   | ALL    | /pprof/profile           | github.com/gogf/gf/v2/net/ghttp.(*utilPProf).Profile         |                                  
+----------|--------|--------------------------|--------------------------------------------------------------|----------------------------------
+  :8000   | ALL    | /pprof/symbol            | github.com/gogf/gf/v2/net/ghttp.(*utilPProf).Symbol          |                                  
+----------|--------|--------------------------|--------------------------------------------------------------|----------------------------------
+  :8000   | ALL    | /pprof/trace             | github.com/gogf/gf/v2/net/ghttp.(*utilPProf).Trace           |                                  
+----------|--------|--------------------------|--------------------------------------------------------------|----------------------------------
+  :8000   | ALL    | /swagger/*               | github.com/gogf/gf/v2/net/ghttp.(*Server).swaggerUI          | HOOK_BEFORE_SERVE                
+----------|--------|--------------------------|--------------------------------------------------------------|----------------------------------
+
+2024-10-20 22:51:26.558 [INFO] {c9fb710e8c300018e64cb569dd3383ee} /home/going/workspace/golang/src/github.com/bugsmo/go-example/hotgo/internal/cmd/cmd.go:30: swagger ui is serving at address: http://127.0.0.1:8000/swagger/
+2024-10-20 22:51:26.558 [INFO] {c9fb710e8c300018e64cb569dd3383ee} /home/going/workspace/golang/src/github.com/bugsmo/go-example/hotgo/internal/cmd/cmd.go:30: openapi specification is serving at address: http://127.0.0.1:8000/api.json
+2024-10-20 22:51:26.558 [INFO] pid[87082]: http server started listening on [:8000]
+
+  ADDRESS | METHOD |          ROUTE           |                           HANDLER                            |           MIDDLEWARE             
+----------|--------|--------------------------|--------------------------------------------------------------|----------------------------------
+  :8000   | GET    | /admin/hello             | hotgo/internal/controller/hello.(*ControllerV1).Hello        | service.IMiddleware.AdminAuth    
+          |        |                          |                                                              | ghttp.MiddlewareHandlerResponse  
+----------|--------|--------------------------|--------------------------------------------------------------|----------------------------------
+  :8000   | POST   | /admin/site/accountLogin | hotgo/internal/controller/admin/common.(*cSite).AccountLogin |                                  
+----------|--------|--------------------------|--------------------------------------------------------------|----------------------------------
+  :8000   | ALL    | /api.json                | github.com/gogf/gf/v2/net/ghttp.(*Server).openapiSpec        |                                  
+----------|--------|--------------------------|--------------------------------------------------------------|----------------------------------
+  :8000   | ALL    | /pprof/*action           | github.com/gogf/gf/v2/net/ghttp.(*utilPProf).Index           |                                  
+----------|--------|--------------------------|--------------------------------------------------------------|----------------------------------
+  :8000   | ALL    | /pprof/cmdline           | github.com/gogf/gf/v2/net/ghttp.(*utilPProf).Cmdline         |                                  
+----------|--------|--------------------------|--------------------------------------------------------------|----------------------------------
+  :8000   | ALL    | /pprof/profile           | github.com/gogf/gf/v2/net/ghttp.(*utilPProf).Profile         |                                  
+----------|--------|--------------------------|--------------------------------------------------------------|----------------------------------
+  :8000   | ALL    | /pprof/symbol            | github.com/gogf/gf/v2/net/ghttp.(*utilPProf).Symbol          |                                  
+----------|--------|--------------------------|--------------------------------------------------------------|----------------------------------
+  :8000   | ALL    | /pprof/trace             | github.com/gogf/gf/v2/net/ghttp.(*utilPProf).Trace           |                                  
+----------|--------|--------------------------|--------------------------------------------------------------|----------------------------------
+  :8000   | ALL    | /swagger/*               | github.com/gogf/gf/v2/net/ghttp.(*Server).swaggerUI          | HOOK_BEFORE_SERVE                
+----------|--------|--------------------------|--------------------------------------------------------------|----------------------------------
+
+2024-10-20 22:57:07.601 [INFO] {c9fb710e8c300018e64cb569dd3383ee} /home/going/workspace/golang/src/github.com/bugsmo/go-example/hotgo/internal/cmd/cmd.go:30: swagger ui is serving at address: http://127.0.0.1:8000/swagger/
+2024-10-20 22:57:07.602 [INFO] {c9fb710e8c300018e64cb569dd3383ee} /home/going/workspace/golang/src/github.com/bugsmo/go-example/hotgo/internal/cmd/cmd.go:30: openapi specification is serving at address: http://127.0.0.1:8000/api.json
+2024-10-20 22:57:07.601 [INFO] pid[90345]: http server started listening on [:8000]
+
+  ADDRESS | METHOD |          ROUTE           |                           HANDLER                            |           MIDDLEWARE             
+----------|--------|--------------------------|--------------------------------------------------------------|----------------------------------
+  :8000   | GET    | /admin/hello             | hotgo/internal/controller/hello.(*ControllerV1).Hello        | service.IMiddleware.AdminAuth    
+          |        |                          |                                                              | ghttp.MiddlewareHandlerResponse  
+----------|--------|--------------------------|--------------------------------------------------------------|----------------------------------
+  :8000   | POST   | /admin/site/accountLogin | hotgo/internal/controller/admin/common.(*cSite).AccountLogin |                                  
+----------|--------|--------------------------|--------------------------------------------------------------|----------------------------------
+  :8000   | ALL    | /api.json                | github.com/gogf/gf/v2/net/ghttp.(*Server).openapiSpec        |                                  
+----------|--------|--------------------------|--------------------------------------------------------------|----------------------------------
+  :8000   | ALL    | /pprof/*action           | github.com/gogf/gf/v2/net/ghttp.(*utilPProf).Index           |                                  
+----------|--------|--------------------------|--------------------------------------------------------------|----------------------------------
+  :8000   | ALL    | /pprof/cmdline           | github.com/gogf/gf/v2/net/ghttp.(*utilPProf).Cmdline         |                                  
+----------|--------|--------------------------|--------------------------------------------------------------|----------------------------------
+  :8000   | ALL    | /pprof/profile           | github.com/gogf/gf/v2/net/ghttp.(*utilPProf).Profile         |                                  
+----------|--------|--------------------------|--------------------------------------------------------------|----------------------------------
+  :8000   | ALL    | /pprof/symbol            | github.com/gogf/gf/v2/net/ghttp.(*utilPProf).Symbol          |                                  
+----------|--------|--------------------------|--------------------------------------------------------------|----------------------------------
+  :8000   | ALL    | /pprof/trace             | github.com/gogf/gf/v2/net/ghttp.(*utilPProf).Trace           |                                  
+----------|--------|--------------------------|--------------------------------------------------------------|----------------------------------
+  :8000   | ALL    | /swagger/*               | github.com/gogf/gf/v2/net/ghttp.(*Server).swaggerUI          | HOOK_BEFORE_SERVE                
+----------|--------|--------------------------|--------------------------------------------------------------|----------------------------------
+

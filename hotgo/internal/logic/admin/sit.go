@@ -8,13 +8,19 @@ import (
 	"hotgo/internal/model"
 	"hotgo/internal/model/entity"
 	"hotgo/internal/model/input/adminin"
+	"hotgo/internal/service"
 	"hotgo/utility/simple"
 
 	"github.com/gogf/gf/errors/gerror"
+	"github.com/gogf/gf/v2/frame/g"
 	"github.com/gogf/gf/v2/os/gtime"
 )
 
 type sAdminSite struct{}
+
+func init() {
+	service.RegisterAdminSite(NewAdminSite())
+}
 
 func NewAdminSite() *sAdminSite {
 	return &sAdminSite{}
@@ -55,6 +61,10 @@ func (s *sAdminSite) AccountLogin(ctx context.Context, in *adminin.AccountLoginI
 	}
 
 	res, err = s.handleLogin(ctx, mb)
+	if err != nil {
+		return nil, err
+	}
+	g.Log().Debugf(ctx, "登录成功: %+v", res)
 	return
 }
 

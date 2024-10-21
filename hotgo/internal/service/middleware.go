@@ -17,6 +17,8 @@ type (
 		AdminAuth(r *ghttp.Request)
 		// IsExceptLogin 是否是不需要登录的路由地址
 		IsExceptLogin(ctx context.Context, appName string, path string) bool
+		// ResponseHandler HTTP响应预处理
+		ResponseHandler(r *ghttp.Request)
 	}
 )
 

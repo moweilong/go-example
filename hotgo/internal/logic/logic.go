@@ -7,4 +7,5 @@ package logic
 import (
 	_ "hotgo/internal/logic/admin"
 	_ "hotgo/internal/logic/middleware"
+	_ "hotgo/internal/logic/sys"
 )

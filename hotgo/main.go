@@ -1,6 +1,7 @@
 package main
 
 import (
+	"hotgo/internal/global"
 	_ "hotgo/internal/packed"
 
 	_ "hotgo/internal/logic"
@@ -13,5 +14,7 @@ import (
 )
 
 func main() {
-	cmd.Main.Run(gctx.GetInitCtx())
+	ctx := gctx.GetInitCtx()
+	global.Init(ctx)
+	cmd.Main.Run(ctx)
 }

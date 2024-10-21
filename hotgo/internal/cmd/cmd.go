@@ -2,7 +2,6 @@ package cmd
 
 import (
 	"context"
-	"hotgo/internal/library/cache"
 	"hotgo/internal/router"
 	"hotgo/internal/service"
 
@@ -29,9 +28,6 @@ var (
 				// 注册后台路由
 				router.Admin(ctx, group)
 			})
-
-			// 设置缓存适配器
-			cache.SetAdapter(ctx)
 
 			s.Run()
 			return nil

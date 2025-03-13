@@ -1,4 +1,0 @@
-
-const stores = {};
-
-export {stores};
